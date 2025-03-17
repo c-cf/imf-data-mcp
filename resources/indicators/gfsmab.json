@@ -1,0 +1,86 @@
+[
+    {
+        "code": "G21__Z",
+        "description": "Compensation of employees"
+    },
+    {
+        "code": "G23__Z",
+        "description": "Consumption of fixed capital"
+    },
+    {
+        "code": "G2M__Z",
+        "description": "Expenditure"
+    },
+    {
+        "code": "G2__Z",
+        "description": "Expense"
+    },
+    {
+        "code": "G2G__Z",
+        "description": "Expense, excluding consumption of fixed capital"
+    },
+    {
+        "code": "G26__Z",
+        "description": "Grants expense"
+    },
+    {
+        "code": "G13__Z",
+        "description": "Grants revenue"
+    },
+    {
+        "code": "G63_FD4",
+        "description": "Gross debt (D4) at market value "
+    },
+    {
+        "code": "G24__Z",
+        "description": "Interest expense"
+    },
+    {
+        "code": "G63N_FD4",
+        "description": "Net debt"
+    },
+    {
+        "code": "GNLB__Z",
+        "description": "Net lending (+) / Net borrowing (-)"
+    },
+    {
+        "code": "G6_F_NN",
+        "description": "Net worth"
+    },
+    {
+        "code": "G28__Z",
+        "description": "Other expense"
+    },
+    {
+        "code": "G14__Z",
+        "description": "Other revenue"
+    },
+    {
+        "code": "GPB__Z",
+        "description": "Primary net lending / borrowing"
+    },
+    {
+        "code": "G1__Z",
+        "description": "Revenue"
+    },
+    {
+        "code": "G27__Z",
+        "description": "Social benefits"
+    },
+    {
+        "code": "G12__Z",
+        "description": "Social contributions"
+    },
+    {
+        "code": "G25__Z",
+        "description": "Subsidies"
+    },
+    {
+        "code": "G11__Z",
+        "description": "Tax revenue"
+    },
+    {
+        "code": "G22__Z",
+        "description": "Use of goods and services"
+    }
+]

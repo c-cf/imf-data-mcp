@@ -1,0 +1,442 @@
+[
+    {
+        "code": "IIWDA_DV_BP6_USD",
+        "description": "Inward Debt Instruments Assets Positions (Gross), Derived, US Dollars"
+    },
+    {
+        "code": "IIWDA_BP6_XDC",
+        "description": "Inward Debt Instruments Assets Positions (Gross), Domestic Currency"
+    },
+    {
+        "code": "IIWDA_BP6_EUR",
+        "description": "Inward Debt Instruments Assets Positions (Gross), Euros"
+    },
+    {
+        "code": "IIWDA_BP6_USD",
+        "description": "Inward Debt Instruments Assets Positions (Gross), US Dollars"
+    },
+    {
+        "code": "IIWDL_BP6_XDC",
+        "description": "Inward Debt Instruments Liabilities Positions (Gross) , Domestic Currency"
+    },
+    {
+        "code": "IIWDL_DV_BP6_USD",
+        "description": "Inward Debt Instruments Liabilities Positions (Gross), Derived, US Dollars"
+    },
+    {
+        "code": "IIWDL_BP6_EUR",
+        "description": "Inward Debt Instruments Liabilities Positions (Gross), Euros"
+    },
+    {
+        "code": "IIWDL_BP6_USD",
+        "description": "Inward Debt Instruments Liabilities Positions (Gross), US Dollars"
+    },
+    {
+        "code": "IIWD_DV_BP6_USD",
+        "description": "Inward Debt Instruments Positions (Net), Derived, US Dollars"
+    },
+    {
+        "code": "IIWD_BP6_XDC",
+        "description": "Inward Debt Instruments Positions (Net), Domestic Currency"
+    },
+    {
+        "code": "IIWD_BP6_EUR",
+        "description": "Inward Debt Instruments Positions (Net), Euros"
+    },
+    {
+        "code": "IIWD_BP6_USD",
+        "description": "Inward Debt Instruments Positions (Net), US Dollars"
+    },
+    {
+        "code": "IIWDN_DV_BP6_USD",
+        "description": "Inward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Derived, US Dollars"
+    },
+    {
+        "code": "IIWDN_BP6_XDC",
+        "description": "Inward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Domestic Currency"
+    },
+    {
+        "code": "IIWDN_BP6_EUR",
+        "description": "Inward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Euros"
+    },
+    {
+        "code": "IIWDN_BP6_USD",
+        "description": "Inward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, US Dollars"
+    },
+    {
+        "code": "IIWDM_DV_BP6_USD",
+        "description": "Inward Debt Positions (Net): Resident Financial Intermediaries, Derived, US Dollars"
+    },
+    {
+        "code": "IIWDM_BP6_XDC",
+        "description": "Inward Debt Positions (Net): Resident Financial Intermediaries, Domestic Currency"
+    },
+    {
+        "code": "IIWDM_BP6_EUR",
+        "description": "Inward Debt Positions (Net): Resident Financial Intermediaries, Euros"
+    },
+    {
+        "code": "IIWDM_BP6_USD",
+        "description": "Inward Debt Positions (Net): Resident Financial Intermediaries, US Dollars"
+    },
+    {
+        "code": "IIWFA_DV_BP6_USD",
+        "description": "Inward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IIWFA_BP6_XDC",
+        "description": "Inward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IIWFA_BP6_EUR",
+        "description": "Inward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IIWFA_BP6_USD",
+        "description": "Inward Direct Investment Assets Positions (Gross) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IIWFL_DV_BP6_USD",
+        "description": "Inward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IIWFL_BP6_XDC",
+        "description": "Inward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IIWFL_BP6_EUR",
+        "description": "Inward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IIWFL_BP6_USD",
+        "description": "Inward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IIWF_DV_BP6_USD",
+        "description": "Inward Direct Investment Positions (Net) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IIWF_BP6_XDC",
+        "description": "Inward Direct Investment Positions (Net) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IIWF_BP6_EUR",
+        "description": "Inward Direct Investment Positions (Net) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IIWF_BP6_USD",
+        "description": "Inward Direct Investment Positions (Net) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IIW_DV_BP6_USD",
+        "description": "Inward Direct Investment Positions, Derived, US Dollars"
+    },
+    {
+        "code": "IIW_BP6_XDC",
+        "description": "Inward Direct Investment Positions, Domestic Currency"
+    },
+    {
+        "code": "IIW_BP6_EUR",
+        "description": "Inward Direct Investment Positions, Euros"
+    },
+    {
+        "code": "IIW_BP6_USD",
+        "description": "Inward Direct Investment Positions, US Dollars"
+    },
+    {
+        "code": "IIWE_DV_BP6_USD",
+        "description": "Inward Equity Positions (Net), Derived, US Dollars"
+    },
+    {
+        "code": "IIWE_BP6_XDC",
+        "description": "Inward Equity Positions (Net), Domestic Currency"
+    },
+    {
+        "code": "IIWE_BP6_EUR",
+        "description": "Inward Equity Positions (Net), Euros"
+    },
+    {
+        "code": "IIWE_BP6_USD",
+        "description": "Inward Equity Positions (Net), US Dollars"
+    },
+    {
+        "code": "INW_BP6_USD",
+        "description": "Net Direct Investment Positions, US Dollars"
+    },
+    {
+        "code": "IOWDA_DV_BP6_USD",
+        "description": "Outward Debt Instruments Assets Positions (Gross), Derived, US Dollars"
+    },
+    {
+        "code": "IOWDA_BP6_XDC",
+        "description": "Outward Debt Instruments Assets Positions (Gross), Domestic Currency"
+    },
+    {
+        "code": "IOWDA_BP6_EUR",
+        "description": "Outward Debt Instruments Assets Positions (Gross), Euros"
+    },
+    {
+        "code": "IOWDA_BP6_USD",
+        "description": "Outward Debt Instruments Assets Positions (Gross), US Dollars"
+    },
+    {
+        "code": "IOWDL_DV_BP6_USD",
+        "description": "Outward Debt Instruments Liabilities Positions (Gross), Derived, US Dollars"
+    },
+    {
+        "code": "IOWDL_BP6_XDC",
+        "description": "Outward Debt Instruments Liabilities Positions (Gross), Domestic Currency"
+    },
+    {
+        "code": "IOWDL_BP6_EUR",
+        "description": "Outward Debt Instruments Liabilities Positions (Gross), Euros"
+    },
+    {
+        "code": "IOWDL_BP6_USD",
+        "description": "Outward Debt Instruments Liabilities Positions (Gross), US Dollars"
+    },
+    {
+        "code": "IOWD_DV_BP6_USD",
+        "description": "Outward Debt Instruments Positions (Net), Derived, US Dollars"
+    },
+    {
+        "code": "IOWD_BP6_XDC",
+        "description": "Outward Debt Instruments Positions (Net), Domestic Currency"
+    },
+    {
+        "code": "IOWD_BP6_EUR",
+        "description": "Outward Debt Instruments Positions (Net), Euros"
+    },
+    {
+        "code": "IOWD_BP6_USD",
+        "description": "Outward Debt Instruments Positions (Net), US Dollars"
+    },
+    {
+        "code": "IOWDN_DV_BP6_USD",
+        "description": "Outward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Derived, US Dollars"
+    },
+    {
+        "code": "IOWDN_BP6_XDC",
+        "description": "Outward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Domestic Currency"
+    },
+    {
+        "code": "IOWDN_BP6_EUR",
+        "description": "Outward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, Euros"
+    },
+    {
+        "code": "IOWDN_BP6_USD",
+        "description": "Outward Debt Positions (Net): Resident Enterprises that are not Financial Intermediaries, US Dollars"
+    },
+    {
+        "code": "IOWDM_DV_BP6_USD",
+        "description": "Outward Debt Positions (Net): Resident Financial Intermediaries, Derived, US Dollars"
+    },
+    {
+        "code": "IOWDM_BP6_XDC",
+        "description": "Outward Debt Positions (Net): Resident Financial Intermediaries, Domestic Currency"
+    },
+    {
+        "code": "IOWDM_BP6_EUR",
+        "description": "Outward Debt Positions (Net): Resident Financial Intermediaries, Euros"
+    },
+    {
+        "code": "IOWDM_BP6_USD",
+        "description": "Outward Debt Positions (Net): Resident Financial Intermediaries, US Dollars"
+    },
+    {
+        "code": "IOWFA_DV_BP6_USD",
+        "description": "Outward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IOWFA_BP6_XDC",
+        "description": "Outward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IOWFA_BP6_EUR",
+        "description": "Outward Direct Investment Assets Positions (Gross) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IOWFA_BP6_USD",
+        "description": "Outward Direct Investment Assets Positions (Gross) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IOWFL_DV_BP6_USD",
+        "description": "Outward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IOWFL_BP6_XDC",
+        "description": "Outward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IOWFL_BP6_EUR",
+        "description": "Outward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IOWFL_BP6_USD",
+        "description": "Outward Direct Investment Liabilities Positions (Gross) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IOWF_DV_BP6_USD",
+        "description": "Outward Direct Investment Positions (Net) with Fellow Enterprises, Derived, US Dollars"
+    },
+    {
+        "code": "IOWF_BP6_XDC",
+        "description": "Outward Direct Investment Positions (Net) with Fellow Enterprises, Domestic Currency"
+    },
+    {
+        "code": "IOWF_BP6_EUR",
+        "description": "Outward Direct Investment Positions (Net) with Fellow Enterprises, Euros"
+    },
+    {
+        "code": "IOWF_BP6_USD",
+        "description": "Outward Direct Investment Positions (Net) with Fellow Enterprises, US Dollars"
+    },
+    {
+        "code": "IOW_DV_BP6_USD",
+        "description": "Outward Direct Investment Positions, Derived, US Dollars"
+    },
+    {
+        "code": "IOW_BP6_XDC",
+        "description": "Outward Direct Investment Positions, Domestic Currency"
+    },
+    {
+        "code": "IOW_BP6_EUR",
+        "description": "Outward Direct Investment Positions, Euros"
+    },
+    {
+        "code": "IOW_BP6_USD",
+        "description": "Outward Direct Investment Positions, US Dollars"
+    },
+    {
+        "code": "IOWE_DV_BP6_USD",
+        "description": "Outward Equity Positions (Net), Derived, US Dollars"
+    },
+    {
+        "code": "IOWE_BP6_XDC",
+        "description": "Outward Equity Positions (Net), Domestic Currency"
+    },
+    {
+        "code": "IOWE_BP6_EUR",
+        "description": "Outward Equity Positions (Net), Euros"
+    },
+    {
+        "code": "IOWE_BP6_USD",
+        "description": "Outward Equity Positions (Net), US Dollars"
+    },
+    {
+        "code": "All_Indicators",
+        "description": "All Indicators"
+    },
+    {
+        "code": "All_Indicators_and_Indicator_Groups",
+        "description": "All Indicators and Indicator Groups"
+    },
+    {
+        "code": "All_Indicators_and_Indicator_Groups_minus_Derived_US_Dollars",
+        "description": "All Indicators and Indicator Groups minus Derived, US Dollars"
+    },
+    {
+        "code": "All_Indicators_Derived_US_Dollars",
+        "description": "All Indicators, Derived, US Dollars"
+    },
+    {
+        "code": "All_Indicators_Domestic_Currency",
+        "description": "All Indicators, Domestic Currency"
+    },
+    {
+        "code": "All_Indicators_Euros",
+        "description": "All Indicators, Euros"
+    },
+    {
+        "code": "All_Indicators_US_Dollars",
+        "description": "All Indicators, US Dollars"
+    },
+    {
+        "code": "All_Indicators_US_Dollars_and_Derived_US_Dollars",
+        "description": "All Indicators, US Dollars and Derived, US Dollars"
+    },
+    {
+        "code": "All_Indicators_US_Dollars_and_the_All_Indicators_group",
+        "description": "All Indicators, US Dollars and the All Indicators group"
+    },
+    {
+        "code": "All_Indicators_US_Dollars_plus_Inward_Direct_Investment_Positions_Net_US_Dollars",
+        "description": "All Indicators, US Dollars plus Inward Direct Investment Positions (Net), US Dollars"
+    },
+    {
+        "code": "Diagnostic_Indicator_Groups",
+        "description": "Diagnostic Indicator Groups"
+    },
+    {
+        "code": "Direct_Investment_Positions_and_Fellows_Indicators_US_Dollars",
+        "description": "Direct Investment Positions and Fellows Indicators, US Dollars"
+    },
+    {
+        "code": "Equity_Indicators_US_Dollars",
+        "description": "Equity Indicators, US Dollars"
+    },
+    {
+        "code": "Gross_Data_Indicators_US_Dollars",
+        "description": "Gross Data Indicators, US Dollars"
+    },
+    {
+        "code": "IIP_BPM5_Comparator_Indicators",
+        "description": "IIP BPM5 Comparator Indicators"
+    },
+    {
+        "code": "IIP_BPM6_Comparator_Indicators",
+        "description": "IIP BPM6 Comparator Indicators"
+    },
+    {
+        "code": "Indicators_for_Publication_Reports",
+        "description": "Indicators for Publication Reports"
+    },
+    {
+        "code": "Inward_Debt_Instrument_Component_Indicators_US_Dollars",
+        "description": "Inward Debt Instrument Component Indicators, US Dollars"
+    },
+    {
+        "code": "Inward_Fellows_Indicators_US_Dollars",
+        "description": "Inward Fellows Indicators, US Dollars"
+    },
+    {
+        "code": "Inward_Indicators_US_Dollars",
+        "description": "Inward Indicators, US Dollars"
+    },
+    {
+        "code": "Inward_Resident_Component_Indicators_US_Dollars",
+        "description": "Inward Resident Component Indicators, US Dollars"
+    },
+    {
+        "code": "Inward_Resident_Financial_Intermediaries_Indicators_US_Dollars",
+        "description": "Inward Resident Financial Intermediaries Indicators, US Dollars"
+    },
+    {
+        "code": "Inward/Outward_Discrepancies_To_Totals",
+        "description": "Inward/Outward Discrepancies To Totals"
+    },
+    {
+        "code": "Core_Indicators_US_Dollars",
+        "description": "Mandatory Indicators, US Dollars"
+    },
+    {
+        "code": "Outward_Debt_Instrument_Component_Indicators_US_Dollars",
+        "description": "Outward Debt Instrument Component Indicators, US Dollars"
+    },
+    {
+        "code": "Outward_Fellows_Indicators_US_Dollars",
+        "description": "Outward Fellows Indicators, US Dollars"
+    },
+    {
+        "code": "Outward_Indicators_US_Dollars",
+        "description": "Outward Indicators, US Dollars"
+    },
+    {
+        "code": "Outward_Resident_Component_Indicators_US_Dollars",
+        "description": "Outward Resident Component Indicators, US Dollars"
+    },
+    {
+        "code": "Outward_Resident_Financial_Intermediaries_Indicators_US_Dollars",
+        "description": "Outward Resident Financial Intermediaries Indicators, US Dollars"
+    }
+]

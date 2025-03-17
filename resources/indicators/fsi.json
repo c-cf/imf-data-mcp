@@ -1,0 +1,246 @@
+[
+    {
+        "code": "FSKRC_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Capital Adequacy, Regulatory Capital to Risk-Weighted Assets, Percent"
+    },
+    {
+        "code": "FSDKRC_USD",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Capital Adequacy, Regulatory Capital to Risk-Weighted Assets, Risk-Weighted Assets, US Dollars"
+    },
+    {
+        "code": "FSKRTC_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Capital Adequacy, Regulatory Tier 1 Capital to Risk-Weighted Assets, Percent"
+    },
+    {
+        "code": "FSDEIM_USD",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Interest Margin to Gross Income, Gross Income, US Dollars"
+    },
+    {
+        "code": "FSEIM_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Interest Margin to Gross Income, Percent"
+    },
+    {
+        "code": "FSERA_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Return on Assets, Percent"
+    },
+    {
+        "code": "FSERE_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Return on Equity, Percent"
+    },
+    {
+        "code": "FSLT_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Liquidity, Liquid Assets to Total Assets (Liquid Asset Ratio), Percent"
+    },
+    {
+        "code": "FSSNO_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Sensitivity to Market Risk, Net Open Position in Foreign Exchange to Capital, Percent"
+    },
+    {
+        "code": "FSNKA_USD",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Capital to Assets, Capital, US Dollars"
+    },
+    {
+        "code": "FSDGA_USD",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Gross Asset Position in Financial Derivatives to Capital, Capital, US Dollars"
+    },
+    {
+        "code": "FSDGL_USD",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Gross Liability Position in Financial Derivatives to Capital, Capital, US Dollars"
+    },
+    {
+        "code": "FSDLE_USD",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Large Exposures to Capital, Capital, US Dollars"
+    },
+    {
+        "code": "FSASD_PT",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Asset Quality, Sectoral Distribution of Loans to Total Loans, Percent"
+    },
+    {
+        "code": "FSGD_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Geographical Distribution of Loans to Total Loans, Percent"
+    },
+    {
+        "code": "FSGA_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Gross Asset Position in Financial Derivatives to Capital, Percent"
+    },
+    {
+        "code": "FSGL_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Gross Liability Position in Financial Derivatives to Capital, Percent"
+    },
+    {
+        "code": "FSLE_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Large Exposures to Capital, Percent"
+    },
+    {
+        "code": "FSSR_BP",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Spread Between Reference Lending and Deposit Rates, Basis Points"
+    },
+    {
+        "code": "FSTI_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Trading Income to Total Income, Percent"
+    },
+    {
+        "code": "FS_NFC_ACR_FSRE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Additional FSIs, Non-financial Corporations Sector, Average capital and reserves, Return on equity, US Dollars"
+    },
+    {
+        "code": "FS_NFC_AINBT_FSRE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Additional FSIs, Non-financial Corporations, Annualized net income after taxes, Return on equity, US Dollars"
+    },
+    {
+        "code": "FSRE_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Non-financial Corporations Sector, Return on Equity, Percent"
+    },
+    {
+        "code": "FS_ODX_LF_FSGL_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Balance Sheet, Liabilities, Financial derivatives and employee stock options, Gross liability position in financial derivatives to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_AFF_FSGA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Balance Sheet, Total assets, Financial assets, Financial derivatives, Gross asset position in financial derivatives to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_IG_FSEIM_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Gross income, Interest margin to gross income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_IG_FSENE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Gross income, Noninterest expenses to gross income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_IG_FSTI_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Gross income, Trading income to total income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_IIN_FSEIM_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Net interest income, Interest margin to gross income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_ENI_FSENE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Noninterest expenses, Noninterest expenses to gross income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_EP_FSPE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Noninterest expenses, Personnel costs, Personnel expenses to noninterest expenses, US Dollars"
+    },
+    {
+        "code": "FS_ODX_ENI_FSPE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Noninterest expenses, Personnel expenses to noninterest expenses, US Dollars"
+    },
+    {
+        "code": "FS_ODX_INIGL_FSTI_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Income and Expense Statement, Noninterest income, Gains or losses on financial instruments, Trading income to total income, US Dollars"
+    },
+    {
+        "code": "FS_ODX_ALB_FSLS_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Liquid assets (broad measure), Liquid assets to short-term liabilities, US Dollars"
+    },
+    {
+        "code": "FS_ODX_AFLNP_FSANL_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Non-performing loans, Nonperforming loans to total gross loans, US Dollars"
+    },
+    {
+        "code": "FS_ODX_RD_FSSR_BP",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Reference deposit rates, Spread between reference lending and deposit rates (base points)"
+    },
+    {
+        "code": "FS_ODX_RD_FSSR_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Reference deposit rates, Spread between reference lending and deposit rates (base points), US Dollars"
+    },
+    {
+        "code": "FS_ODX_RL_FSSR_BP",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Reference lending rates, Spread between reference lending and deposit rates (base points)"
+    },
+    {
+        "code": "FS_ODX_RL_FSSR_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Reference lending rates, Spread between reference lending and deposit rates (base points), US Dollars"
+    },
+    {
+        "code": "FS_ODX_L_S_FSLS_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Series for further analysis of the balance sheet, Short-term liabilities, Liquid assets to short-term liabilities, US Dollars"
+    },
+    {
+        "code": "FS_ODX_ARW_FSKRC_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Risk-weighted assets, Regulatory capital to risk-weighted assets, US Dollars"
+    },
+    {
+        "code": "FS_ODX_CT1_FSLE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Tier 1 Capital, Large exposures to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_CT1_FSKA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Tier 1 Capital, Tier 1 capital to assets, US Dollars"
+    },
+    {
+        "code": "FS_ODX_CRT_FSGA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Total regulatory capital, Gross asset position in financial derivatives to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_CRT_FSGL_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Total regulatory capital, Gross liability position in financial derivatives to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_CRT_FSSNO_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Total regulatory capital, Net open position in foreign exchange to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_VLE_FSLE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Memorandum Series, Supervisory-based series, Value of large exposures, Large exposures to capital, US Dollars"
+    },
+    {
+        "code": "FS_ODX_AFLG_FSANL_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Deposit takers, Total assets, Financial assets, Loans (after specific provisions), Gross loans, Nonperforming loans to total gross loans, US Dollars"
+    },
+    {
+        "code": "FS_OFM_IPF_IC_AINAET_FSREIC_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Other financial corporations, Insurance Corporations, Data series for compiling FSIs: ROA and ROE, Annualized net income after taxes, Return on equity (Life insurance & nonlife insurance), US Dollars"
+    },
+    {
+        "code": "FS_OFM_IPF_IC_ACR_FSREIC_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Other financial corporations, Insurance Corporations, Data series for compiling FSIs: ROA and ROE, Average capital and reserves, Return on equity (Life insurance & nonlife insurance), US Dollars"
+    },
+    {
+        "code": "FS_OFM_IPF_LIC_AINBT_FSRALI_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Other financial corporations, Life Insurance Corporations, Data series for compiling FSIs: ROA and ROE, Annualized net income after taxes, Return on assets (Life insurance only), US Dollars"
+    },
+    {
+        "code": "FS_OFM_IPF_LIC_ACR_FSRELI_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Other financial corporations, Life Insurance Corporations, Data series for compiling FSIs: ROA and ROE, Average capital and reserves, Return on equity (Life insurance only), US Dollars"
+    },
+    {
+        "code": "FS_OFM_IPF_LIC_AA_FSRALI_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Balance Sheets and Income Statements, Other financial corporations, Life Insurance Corporations, Data series for compiling FSIs: ROA and ROE, Average total assets, Return on assets (Life insurance only), US Dollars"
+    },
+    {
+        "code": "FSKA_PT",
+        "description": "Financial, Financial Soundness Indicators, Encouraged Set, Deposit Takers, Capital to Assets, Percent"
+    },
+    {
+        "code": "FSDKA_FSKA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Capital Adequacy, Tier 1 Capital to Assets, Total assets, Tier 1 capital to assets, US Dollars"
+    },
+    {
+        "code": "FSDERE_FSERE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Capital, Return on equity, US Dollars"
+    },
+    {
+        "code": "FSNERAB_FSERE_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Net Income after Taxes, Return on equity, US Dollars"
+    },
+    {
+        "code": "FSNERA_FSERA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Net Income before Taxes, Return on assets, US Dollars"
+    },
+    {
+        "code": "FSNERA_USD",
+        "description": "Financial, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Return on Assets, Net Income, US Dollars"
+    },
+    {
+        "code": "FSDERA_FSERA_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Earnings and Profitability, Total Assets, Return on assets, US Dollars"
+    },
+    {
+        "code": "FSNSNO_FSSNO_USD",
+        "description": "Monetary and Financial Accounts, Financial Soundness Indicators, Core Set, Deposit Takers, Sensitivity to Market Risk, Net Open Position in Foreign Exchange, Net open position in foreign exchange to capital, US Dollars"
+    }
+]

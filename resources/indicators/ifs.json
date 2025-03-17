@@ -1,0 +1,162 @@
+[
+    {
+        "code": "BXG_BP6_USD",
+        "description": "Balance of Payments, Current Account,  Goods and Services, Goods , Credit, US Dollars"
+    },
+    {
+        "code": "BXS_BP6_USD",
+        "description": "Balance of Payments, Current Account,  Goods and Services, Services, Credit, US Dollars"
+    },
+    {
+        "code": "BXIP_BP6_USD",
+        "description": "Balance of Payments, Current Account,  Primary income, Credit, US Dollars"
+    },
+    {
+        "code": "EDSE_USD_XDR_RATE",
+        "description": "Exchange Rates, US Dollar per SDR, End of period, Rate"
+    },
+    {
+        "code": "EDSA_USD_XDR_RATE",
+        "description": "Exchange Rates, US Dollar per SDR, Period average, Rate"
+    },
+    {
+        "code": "FILR_FX_EUR_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Foreign Currency, Euro, Percent per Annum"
+    },
+    {
+        "code": "FILR_FX_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Foreign Currency, Percent per Annum"
+    },
+    {
+        "code": "FILR_FX_USD_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Foreign Currency, US Dollar, Percent per Annum"
+    },
+    {
+        "code": "FILR_ON_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Overnight"
+    },
+    {
+        "code": "FILR_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Percent per annum"
+    },
+    {
+        "code": "FISR_FX_PA",
+        "description": "Financial, Interest Rates, Savings Rate, Foreign Currency, Percent per Annum"
+    },
+    {
+        "code": "FISR_PA",
+        "description": "Financial, Interest Rates, Savings Rate, Percent per annum"
+    },
+    {
+        "code": "NGDP_D_IX",
+        "description": "Gross Domestic Product, Deflator, Index"
+    },
+    {
+        "code": "NGDP_D_SA_IX",
+        "description": "Gross Domestic Product, Deflator, Seasonally Adjusted, Index"
+    },
+    {
+        "code": "NGDP_XDC",
+        "description": "Gross Domestic Product, Nominal, Domestic Currency"
+    },
+    {
+        "code": "NGDP_SA_XDC",
+        "description": "Gross Domestic Product, Nominal, Seasonally Adjusted, Domestic Currency"
+    },
+    {
+        "code": "NGDP_SA_PU",
+        "description": "Gross Domestic Product, Nominal, Seasonally Adjusted, in Purchasing-Power-Parity International Dollars"
+    },
+    {
+        "code": "NGDP_NSA_XDC",
+        "description": "Gross Domestic Product, Nominal, Unadjusted, Domestic Currency"
+    },
+    {
+        "code": "NGDP_R_XDC",
+        "description": "Gross Domestic Product, Real, Domestic Currency"
+    },
+    {
+        "code": "NGDP_R_SA_XDC",
+        "description": "Gross Domestic Product, Real, Seasonally Adjusted, Domestic Currency"
+    },
+    {
+        "code": "NGDP_R_SA_PU",
+        "description": "Gross Domestic Product, Real, Seasonally Adjusted, in Purchasing-Power-Parity International Dollars"
+    },
+    {
+        "code": "NGDP_R_NSA_XDC",
+        "description": "Gross Domestic Product, Real, Unadjusted, Domestic Currency"
+    },
+    {
+        "code": "RAXGFX_XDR",
+        "description": "International Liquidity, Total Reserves excluding Gold, Foreign Exchange, SDRs"
+    },
+    {
+        "code": "RAXGFX_USD",
+        "description": "International Liquidity, Total Reserves excluding Gold, Foreign Exchange, US Dollars"
+    },
+    {
+        "code": "RAXG_XDR",
+        "description": "International Liquidity, Total Reserves excluding Gold, SDRs"
+    },
+    {
+        "code": "RAXG_USD",
+        "description": "International Liquidity, Total Reserves excluding Gold, US Dollars"
+    },
+    {
+        "code": "RAXGO_XDR",
+        "description": "International Liquidity, Total Reserves Minus Gold, Other Reserve Assets, SDRs"
+    },
+    {
+        "code": "RAXGO_USD",
+        "description": "International Liquidity, Total Reserves Minus Gold, Other Reserve Assets, US Dollars"
+    },
+    {
+        "code": "22BX__XDC",
+        "description": "Monetary, Banking Institutions, Claims on Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "52BX__XDC",
+        "description": "Monetary, Banking Survey, Claims on Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "FM3_A2_SA_XDC",
+        "description": "Monetary, M3, Alternate Definition 2, Seasonally Adjusted, Domestic Currency"
+    },
+    {
+        "code": "FM3_A3_XDC",
+        "description": "Monetary, M3, Alternate Definition 3, Domestic Currency"
+    },
+    {
+        "code": "FM3_A4_XDC",
+        "description": "Monetary, M3, Alternate Definition 4, Domestic Currency"
+    },
+    {
+        "code": "12BX__XDC",
+        "description": "Monetary, Monetary Authorities, Claims on Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "32BX__XDC",
+        "description": "Monetary, Monetary Survey, Claims on Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "42BX__XDC",
+        "description": "Monetary, Nonbank Financial Institutions, Claims on Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "42BX_V1_XDC",
+        "description": "Monetary, Other Banking Institutions and Nonbank Institutions, Variations of Claims on State and Local Government or Official Entities, Variations of Claims On Official Entities (Non-Standardized Presentation), Domestic Currency"
+    },
+    {
+        "code": "PCPI_IX",
+        "description": "Prices, Consumer Price Index, All items, Index"
+    },
+    {
+        "code": "PPPI_IX",
+        "description": "Prices, Producer Price Index, All Commodities, Index"
+    },
+    {
+        "code": "BXISXF_BP6_USD",
+        "description": "Balance of Payments, Supplementary Items, Secondary Income, Credit (excluding exceptional financing), US Dollars"
+    }
+]

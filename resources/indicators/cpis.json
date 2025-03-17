@@ -1,0 +1,282 @@
+[
+    {
+        "code": "I_A_T_T_T_BP6_USD",
+        "description": "Assets, Total Investment, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_T_BP6_USD",
+        "description": "Assets, Equity, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_T_BP6_USD",
+        "description": "Assets, Debt Securities, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_T_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_T_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_T_T_T_BP6_USD",
+        "description": "Liabilities, Total Investment, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_E_T_T_BP6_USD",
+        "description": "Liabilities, Equity, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_D_T_T_BP6_USD",
+        "description": "Liabilities, Debt Securities, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_D_L_T_BP6_USD",
+        "description": "Liabilities, Debt Securities, Long-term, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_D_S_T_BP6_USD",
+        "description": "Liabilities, Debt Securities, Short-term, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_GBP_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in British Pounds, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_GBP_BP6_USD",
+        "description": "Assets, Equity, Denominated in British Pounds, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_GBP_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in British Pounds, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_GBP_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in British Pounds, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_GBP_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in British Pounds, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_EUR_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Euros, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_EUR_BP6_USD",
+        "description": "Assets, Equity, Denominated in Euros, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_EUR_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Euros, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_EUR_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Euros, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_EUR_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Euros, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_JPY_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Japanese Yen, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_JPY_BP6_USD",
+        "description": "Assets, Equity, Denominated in Japanese Yen, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_JPY_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Japanese Yen, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_JPY_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Japanese Yen, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_JPY_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Japanese Yen, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_CHF_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Swiss Francs, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_CHF_BP6_USD",
+        "description": "Assets, Equity, Denominated in Swiss Francs, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_CHF_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Swiss Francs, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_CHF_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Swiss Francs, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_CHF_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Swiss Francs, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_USD_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in US Dollars, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_USD_BP6_USD",
+        "description": "Assets, Equity, Denominated in US Dollars, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_USD_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in US Dollars, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_USD_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in US Dollars, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_USD_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in US Dollars, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_O_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Other Currencies, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_O_BP6_USD",
+        "description": "Assets, Equity, Denominated in Other Currencies, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_O_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Other Currencies, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_O_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Other Currencies, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_O_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Other Currencies, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_SN_BP6_USD",
+        "description": "Assets, Total Investment, Short or Negative Positions, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_SN_BP6_USD",
+        "description": "Assets, Equity, Short or Negative Positions, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_SN_BP6_USD",
+        "description": "Assets, Debt Securities, Short or Negative Positions, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_SN_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Short or Negative Positions, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_SN_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Short or Negative Positions, BPM6, US Dollars"
+    },
+    {
+        "code": "I_L_T_T_T_BP6_DV_USD",
+        "description": "Liabilities, Total Investment, BPM6, Derived, US Dollars"
+    },
+    {
+        "code": "I_L_E_T_T_BP6_DV_USD",
+        "description": "Liabilities, Equity, BPM6, Derived, US Dollars"
+    },
+    {
+        "code": "I_L_D_T_T_BP6_DV_USD",
+        "description": "Liabilities, Debt Securities, BPM6, Derived, US Dollars"
+    },
+    {
+        "code": "I_L_D_L_T_BP6_DV_USD",
+        "description": "Liabilities, Debt Securities, Long-term, BPM6, Derived, US Dollars"
+    },
+    {
+        "code": "I_L_D_S_T_BP6_DV_USD",
+        "description": "Liabilities, Debt Securities, Short-term, BPM6, Derived, US Dollars"
+    },
+    {
+        "code": "Assets",
+        "description": "Assets"
+    },
+    {
+        "code": "Assets_Denominated_US_Dollars",
+        "description": "Assets, Denominated"
+    },
+    {
+        "code": "Assets_Short_or_Negaive_Positions_US_Dollars",
+        "description": "Assets, Short or Negaive Positions"
+    },
+    {
+        "code": "Liabilities_US_Dollars",
+        "description": "Liabilities"
+    },
+    {
+        "code": "Liabilities_Derived_US_Dollars",
+        "description": "Liabilities, Derived"
+    },
+    {
+        "code": "I_A_T_T_CNY_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Chinese Renminbi, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_CNY_BP6_USD",
+        "description": "Assets, Equity, Denominated in Chinese Renminbi, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_CNY_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Chinese Renminbi, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_CNY_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Chinese Renminbi, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_CNY_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Chinese Renminbi, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_CAD_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Canadian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_CAD_BP6_USD",
+        "description": "Assets, Equity, Denominated in Canadian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_CAD_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Canadian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_CAD_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Canadian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_CAD_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Canadian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_T_T_AUD_BP6_USD",
+        "description": "Assets, Total Investment, Denominated in Australian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_E_T_AUD_BP6_USD",
+        "description": "Assets, Equity, Denominated in Australian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_T_AUD_BP6_USD",
+        "description": "Assets, Debt Securities, Denominated in Australian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_L_AUD_BP6_USD",
+        "description": "Assets, Debt Securities, Long-term, Denominated in Australian Dollar, BPM6, US Dollars"
+    },
+    {
+        "code": "I_A_D_S_AUD_BP6_USD",
+        "description": "Assets, Debt Securities, Short-term, Denominated in Australian Dollar, BPM6, US Dollars"
+    }
+]

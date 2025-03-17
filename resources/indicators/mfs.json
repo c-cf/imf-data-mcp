@@ -1,0 +1,202 @@
+[
+    {
+        "code": "FDSBR_PT",
+        "description": "Depository Corporations Survey, Ratio of Monetary Base to Broad Money, Percent"
+    },
+    {
+        "code": "FPECS_IX",
+        "description": "Financial Market Prices, Equities, Consumer Staples, Index"
+    },
+    {
+        "code": "FPE_EOP_IX",
+        "description": "Financial Market Prices, Equities, End of Period, Index"
+    },
+    {
+        "code": "FPEF_EOP_IX",
+        "description": "Financial Market Prices, Equities, Financials, End of Period, Index"
+    },
+    {
+        "code": "FPEFR_EOP_IX",
+        "description": "Financial Market Prices, Equities, Forestry, End of Period, Index"
+    },
+    {
+        "code": "FPEFR_IX",
+        "description": "Financial Market Prices, Equities, Forestry, Index"
+    },
+    {
+        "code": "FPE_IX",
+        "description": "Financial Market Prices, Equities, Index"
+    },
+    {
+        "code": "FPEI_EOP_IX",
+        "description": "Financial Market Prices, Equities, Industrials, End of Period, Index"
+    },
+    {
+        "code": "FPEI_IX",
+        "description": "Financial Market Prices, Equities, Industrials, Index"
+    },
+    {
+        "code": "FPEMF_IX",
+        "description": "Financial Market Prices, Equities, Manufacturing, Index"
+    },
+    {
+        "code": "FPEMN_IX",
+        "description": "Financial Market Prices, Equities, Mining, Index"
+    },
+    {
+        "code": "FPEPAMEX_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, American Exchange, Index"
+    },
+    {
+        "code": "FPEPIGPA_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Chile IGPA, Index Number"
+    },
+    {
+        "code": "FPEPFIRS_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Investment Funds Index of Republika Srpska, Index Number"
+    },
+    {
+        "code": "FPEPSEM7_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Mauritius SEM-7, Index Number"
+    },
+    {
+        "code": "FPEPNAS_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, NASDAQ, Index"
+    },
+    {
+        "code": "FPEPWIG20_EOP_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Poland Warsaw Stock Exchange WIG-20, End of Price, Index"
+    },
+    {
+        "code": "FPEPWIG20_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Poland Warsaw Stock Exchange WIG-20, Index"
+    },
+    {
+        "code": "FPEPRTS_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Russia RTS Exchange, Index"
+    },
+    {
+        "code": "FPEPSP_IX",
+        "description": "Financial Market Prices, Equities, Primary Market Instruments, Standard and Poor's, Index"
+    },
+    {
+        "code": "FPESP_EOP_IX",
+        "description": "Financial Market Prices, Equities, Shipping, End of Period, Index"
+    },
+    {
+        "code": "FPESP_IX",
+        "description": "Financial Market Prices, Equities, Shipping, Index"
+    },
+    {
+        "code": "FIGBY_PA",
+        "description": "Financial, Interest Rates Government Bond Yield, Per Cent Per Annum"
+    },
+    {
+        "code": "FII_3M_PA",
+        "description": "Financial, Interest Rates, 3-Month Interbank Interest, Percent per annum"
+    },
+    {
+        "code": "FIACF_PA",
+        "description": "Financial, Interest Rates, Average Cost of Funds, Percent per Annum"
+    },
+    {
+        "code": "FIBFR_PA",
+        "description": "Financial, Interest Rates, Central Bank Borrowing Facility Rate"
+    },
+    {
+        "code": "FICB_PA",
+        "description": "Financial, Interest Rates, Central Bank Certificates"
+    },
+    {
+        "code": "FICD_PA",
+        "description": "Financial, Interest Rates, Certificates of Deposit, Percent per annum"
+    },
+    {
+        "code": "FICPR_PA",
+        "description": "Financial, Interest Rates, Corporate Paper Rate"
+    },
+    {
+        "code": "FIDR_ON_PA",
+        "description": "Financial, Interest Rates, Deposit, Overnight"
+    },
+    {
+        "code": "FIDR_PA",
+        "description": "Financial, Interest Rates, Deposit, Percent per annum"
+    },
+    {
+        "code": "FID_PA",
+        "description": "Financial, Interest Rates, Discount, Percent per annum"
+    },
+    {
+        "code": "FIGBY_MT_PA",
+        "description": "Financial, Interest Rates, Government Bond Yields, Medium Term, Percent per annum"
+    },
+    {
+        "code": "FIGBY_SM_PA",
+        "description": "Financial, Interest Rates, Government Bond Yields, Short- to Medium-Term, Percent per Annum"
+    },
+    {
+        "code": "FIGB_MLT_PA",
+        "description": "Financial, Interest Rates, Government Securities, Government Bonds, Medium- to Long-term, Percent per annum"
+    },
+    {
+        "code": "FIGB_PA",
+        "description": "Financial, Interest Rates, Government Securities, Government Bonds, Percent per annum"
+    },
+    {
+        "code": "FIGB_S_PA",
+        "description": "Financial, Interest Rates, Government Securities, Government Bonds, Short-term, Percent per annum"
+    },
+    {
+        "code": "FIRAK_PA",
+        "description": "Financial, Interest Rates, Key Repurchase Agreement Rate, Percent per annum"
+    },
+    {
+        "code": "FILR_ON_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Overnight"
+    },
+    {
+        "code": "FILR_PA",
+        "description": "Financial, Interest Rates, Lending Rate, Percent per annum"
+    },
+    {
+        "code": "FPOLM_PA",
+        "description": "Financial, Interest Rates, Monetary Policy-Related Interest Rate, Percent per annum"
+    },
+    {
+        "code": "FIRR_PA",
+        "description": "Financial, Interest Rates, Rate of Remuneration, Percent per Annum"
+    },
+    {
+        "code": "FIR_PA",
+        "description": "Financial, Interest Rates, Refinancing Rate, Percent per annum"
+    },
+    {
+        "code": "FIRA_PA",
+        "description": "Financial, Interest Rates, Repurchase Agreement Rate, Percent per annum"
+    },
+    {
+        "code": "FIRAR_PA",
+        "description": "Financial, Interest Rates, Reverse Repurchase Agreement Rate"
+    },
+    {
+        "code": "FISR_PA",
+        "description": "Financial, Interest Rates, Savings Rate, Percent per annum"
+    },
+    {
+        "code": "FISDR_PA",
+        "description": "Financial, Interest Rates, SDR Interest Rate, Percent per annum"
+    },
+    {
+        "code": "FASMB_PC_CP_A_PT",
+        "description": "Monetary, Central Bank Survey, Monetary Base, Percentage change, Corresponding period previous year, Percent"
+    },
+    {
+        "code": "FDSB_PC_CP_A_PT",
+        "description": "Monetary, Depository Corporations Survey, Broad Money Liabilities (refers to the Depository Corporations), Percentage change, Corresponding period previous year, Percent"
+    },
+    {
+        "code": "MFS",
+        "description": "Monetary and Financial Statistics (MFS)"
+    }
+]

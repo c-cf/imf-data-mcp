@@ -1,0 +1,161 @@
+{
+    "Structure": {
+      "@xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+      "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "@xmlns": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message",
+      "@xsi:schemaLocation": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure https://registry.sdmx.org/schemas/v2_0/SDMXStructure.xsd http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message https://registry.sdmx.org/schemas/v2_0/SDMXMessage.xsd",
+      "Header": {
+        "ID": "c0e52ba3-fb73-4c82-957c-b2d1677c5ebe",
+        "Test": "false",
+        "Prepared": "2025-03-16T03:01:23",
+        "Sender": {
+          "@id": "1C0",
+          "Name": {
+            "@xml:lang": "en",
+            "#text": "IMF"
+          },
+          "Contact": {
+            "URI": "http://www.imf.org",
+            "Telephone": "+ 1 (202) 623-6220"
+          }
+        },
+        "Receiver": {
+          "@id": "ZZZ"
+        }
+      },
+      "CodeLists": {
+        "CodeList": {
+          "@id": "CL_SECTOR_CPIS",
+          "@agencyID": "IMF",
+          "@version": "1.0",
+          "@isFinal": "true",
+          "@xmlns": "http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure",
+          "Name": {
+            "@xml:lang": "en",
+            "#text": "Sector"
+          },
+          "Code": [
+            {
+              "@value": "T",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Total Holdings"
+              }
+            },
+            {
+              "@value": "FC",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Financial Corporations"
+              }
+            },
+            {
+              "@value": "DC",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Deposit Taking Corporations"
+              }
+            },
+            {
+              "@value": "CB",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Central Bank"
+              }
+            },
+            {
+              "@value": "ODX",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Depository-taking Corporations except the Central Bank"
+              }
+            },
+            {
+              "@value": "OFT",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Other Financial Corporations"
+              }
+            },
+            {
+              "@value": "IPF",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Other Financial Corporations: Insurance Corporations and Pension Funds"
+              }
+            },
+            {
+              "@value": "MMF",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Other Financial Corporations: Money Market Funds"
+              }
+            },
+            {
+              "@value": "OFX",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Other Financial Corporations: Other"
+              }
+            },
+            {
+              "@value": "OFI",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Held by other financial institutions, of which: Insurance"
+              }
+            },
+            {
+              "@value": "OFM",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Held by other financial institutions, of which: Mutual funds"
+              }
+            },
+            {
+              "@value": "OFO",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Held by other financial institutions, of which: Other"
+              }
+            },
+            {
+              "@value": "GG",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "General Government"
+              }
+            },
+            {
+              "@value": "NHN",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Nonfinancial Corporations, Households and NPISHs"
+              }
+            },
+            {
+              "@value": "NFC",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Nonfinancial Corporations, Households and NPISHs: Nonfinancial Corporations"
+              }
+            },
+            {
+              "@value": "HH",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Nonfinancial Corporations, Households and NPISHs: Households"
+              }
+            },
+            {
+              "@value": "NP",
+              "Description": {
+                "@xml:lang": "en",
+                "#text": "Nonfinancial Corporations, Households and NPISHs: NPISHs"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

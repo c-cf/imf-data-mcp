@@ -1,0 +1,1186 @@
+[
+    {
+        "code": "AF",
+        "description": "Afghanistan"
+    },
+    {
+        "code": "AL",
+        "description": "Albania"
+    },
+    {
+        "code": "DZ",
+        "description": "Algeria"
+    },
+    {
+        "code": "AS",
+        "description": "American Samoa"
+    },
+    {
+        "code": "AD",
+        "description": "Andorra"
+    },
+    {
+        "code": "AO",
+        "description": "Angola"
+    },
+    {
+        "code": "AI",
+        "description": "Anguilla"
+    },
+    {
+        "code": "AG",
+        "description": "Antigua and Barbuda"
+    },
+    {
+        "code": "5M",
+        "description": "AMF (Arab Monetary Fund)"
+    },
+    {
+        "code": "AR",
+        "description": "Argentina"
+    },
+    {
+        "code": "AM",
+        "description": "Armenia"
+    },
+    {
+        "code": "AW",
+        "description": "Aruba"
+    },
+    {
+        "code": "AU",
+        "description": "Australia"
+    },
+    {
+        "code": "AT",
+        "description": "Austria"
+    },
+    {
+        "code": "AZ",
+        "description": "Azerbaijan"
+    },
+    {
+        "code": "BS",
+        "description": "Bahamas"
+    },
+    {
+        "code": "BH",
+        "description": "Bahrain"
+    },
+    {
+        "code": "BD",
+        "description": "Bangladesh"
+    },
+    {
+        "code": "5W",
+        "description": "BEAC (Banque des Etats de l`Afrique Centrale)"
+    },
+    {
+        "code": "5B",
+        "description": "BIS (Bank for International Settlements)"
+    },
+    {
+        "code": "BB",
+        "description": "Barbados"
+    },
+    {
+        "code": "BY",
+        "description": "Belarus"
+    },
+    {
+        "code": "BE",
+        "description": "Belgium"
+    },
+    {
+        "code": "R1",
+        "description": "Belgo-Luxembourg Economic Union"
+    },
+    {
+        "code": "BZ",
+        "description": "Belize"
+    },
+    {
+        "code": "BJ",
+        "description": "Benin"
+    },
+    {
+        "code": "BM",
+        "description": "Bermuda"
+    },
+    {
+        "code": "BT",
+        "description": "Bhutan"
+    },
+    {
+        "code": "BO",
+        "description": "Bolivia"
+    },
+    {
+        "code": "BA",
+        "description": "Bosnia and Herzegovina"
+    },
+    {
+        "code": "BW",
+        "description": "Botswana"
+    },
+    {
+        "code": "BR",
+        "description": "Brazil"
+    },
+    {
+        "code": "BN",
+        "description": "Brunei Darussalam"
+    },
+    {
+        "code": "BG",
+        "description": "Bulgaria"
+    },
+    {
+        "code": "BF",
+        "description": "Burkina Faso"
+    },
+    {
+        "code": "BI",
+        "description": "Burundi"
+    },
+    {
+        "code": "CV",
+        "description": "Cabo Verde"
+    },
+    {
+        "code": "KH",
+        "description": "Cambodia"
+    },
+    {
+        "code": "CM",
+        "description": "Cameroon"
+    },
+    {
+        "code": "CA",
+        "description": "Canada"
+    },
+    {
+        "code": "KY",
+        "description": "Cayman Islands"
+    },
+    {
+        "code": "CF",
+        "description": "Central African Republic"
+    },
+    {
+        "code": "1C_752",
+        "description": "Central Bank West Africa"
+    },
+    {
+        "code": "TD",
+        "description": "Chad"
+    },
+    {
+        "code": "CL",
+        "description": "Chile"
+    },
+    {
+        "code": "HK",
+        "description": "Hong Kong, China"
+    },
+    {
+        "code": "MO",
+        "description": "Macao"
+    },
+    {
+        "code": "CN",
+        "description": "China"
+    },
+    {
+        "code": "CO",
+        "description": "Colombia"
+    },
+    {
+        "code": "KM",
+        "description": "Comoros"
+    },
+    {
+        "code": "CD",
+        "description": "Congo, the Democratic Republic of the"
+    },
+    {
+        "code": "CG",
+        "description": "Congo"
+    },
+    {
+        "code": "CK",
+        "description": "Cook Islands"
+    },
+    {
+        "code": "CR",
+        "description": "Costa Rica"
+    },
+    {
+        "code": "CI",
+        "description": "Cote d`Ivoire"
+    },
+    {
+        "code": "HR",
+        "description": "Croatia"
+    },
+    {
+        "code": "CU",
+        "description": "Cuba"
+    },
+    {
+        "code": "1C_355",
+        "description": "Curacao & St. Maarten"
+    },
+    {
+        "code": "CW",
+        "description": "Curacao"
+    },
+    {
+        "code": "CY",
+        "description": "Cyprus"
+    },
+    {
+        "code": "CZ",
+        "description": "Czech Republic"
+    },
+    {
+        "code": "CSH",
+        "description": "Former Czechoslovakia"
+    },
+    {
+        "code": "DK",
+        "description": "Denmark"
+    },
+    {
+        "code": "DJ",
+        "description": "Djibouti"
+    },
+    {
+        "code": "DM",
+        "description": "Dominica"
+    },
+    {
+        "code": "DO",
+        "description": "Dominican Republic"
+    },
+    {
+        "code": "5I",
+        "description": "ECCB (Eastern Caribbean Central Bank)"
+    },
+    {
+        "code": "DE2",
+        "description": "East Germany"
+    },
+    {
+        "code": "EC",
+        "description": "Ecuador"
+    },
+    {
+        "code": "EG",
+        "description": "Egypt"
+    },
+    {
+        "code": "SV",
+        "description": "El Salvador"
+    },
+    {
+        "code": "GQ",
+        "description": "Equatorial Guinea"
+    },
+    {
+        "code": "ER",
+        "description": "Eritrea"
+    },
+    {
+        "code": "EE",
+        "description": "Estonia"
+    },
+    {
+        "code": "SZ",
+        "description": "Eswatini"
+    },
+    {
+        "code": "ET",
+        "description": "Ethiopia"
+    },
+    {
+        "code": "U2",
+        "description": "Euro area (Member States and Institutions of the Euro Area) changing composition"
+    },
+    {
+        "code": "4F",
+        "description": "ECB (European Central Bank)"
+    },
+    {
+        "code": "1C_977",
+        "description": "European Monetary Institution"
+    },
+    {
+        "code": "FK",
+        "description": "Falkland Islands (Malvinas)"
+    },
+    {
+        "code": "FO",
+        "description": "Faroe Islands"
+    },
+    {
+        "code": "FJ",
+        "description": "Fiji"
+    },
+    {
+        "code": "FI",
+        "description": "Finland"
+    },
+    {
+        "code": "FR",
+        "description": "France"
+    },
+    {
+        "code": "PF",
+        "description": "French Polynesia"
+    },
+    {
+        "code": "GA",
+        "description": "Gabon"
+    },
+    {
+        "code": "GM",
+        "description": "Gambia"
+    },
+    {
+        "code": "GE",
+        "description": "Georgia"
+    },
+    {
+        "code": "DE",
+        "description": "Germany"
+    },
+    {
+        "code": "GH",
+        "description": "Ghana"
+    },
+    {
+        "code": "GI",
+        "description": "Gibraltar"
+    },
+    {
+        "code": "GR",
+        "description": "Greece"
+    },
+    {
+        "code": "GL",
+        "description": "Greenland"
+    },
+    {
+        "code": "GD",
+        "description": "Grenada"
+    },
+    {
+        "code": "GP",
+        "description": "Guadeloupe"
+    },
+    {
+        "code": "GU",
+        "description": "Guam"
+    },
+    {
+        "code": "GT",
+        "description": "Guatemala"
+    },
+    {
+        "code": "GG",
+        "description": "Guernsey"
+    },
+    {
+        "code": "GF",
+        "description": "French Guiana"
+    },
+    {
+        "code": "GN",
+        "description": "Guinea"
+    },
+    {
+        "code": "GW",
+        "description": "Guinea-Bissau"
+    },
+    {
+        "code": "GY",
+        "description": "Guyana"
+    },
+    {
+        "code": "HT",
+        "description": "Haiti"
+    },
+    {
+        "code": "HN",
+        "description": "Honduras"
+    },
+    {
+        "code": "HU",
+        "description": "Hungary"
+    },
+    {
+        "code": "IS",
+        "description": "Iceland"
+    },
+    {
+        "code": "IN",
+        "description": "India"
+    },
+    {
+        "code": "ID",
+        "description": "Indonesia"
+    },
+    {
+        "code": "1E",
+        "description": "IBRD (International Bank for Reconstruction and Development)"
+    },
+    {
+        "code": "X0",
+        "description": "IMF Member Countries (IMF)"
+    },
+    {
+        "code": "IR",
+        "description": "Iran, Islamic Republic of"
+    },
+    {
+        "code": "IQ",
+        "description": "Iraq"
+    },
+    {
+        "code": "IE",
+        "description": "Ireland"
+    },
+    {
+        "code": "7B",
+        "description": "IDB (Islamic Development Bank)"
+    },
+    {
+        "code": "IM",
+        "description": "Isle of Man"
+    },
+    {
+        "code": "IL",
+        "description": "Israel"
+    },
+    {
+        "code": "IT",
+        "description": "Italy"
+    },
+    {
+        "code": "JM",
+        "description": "Jamaica"
+    },
+    {
+        "code": "JP",
+        "description": "Japan"
+    },
+    {
+        "code": "JE",
+        "description": "Jersey"
+    },
+    {
+        "code": "JO",
+        "description": "Jordan"
+    },
+    {
+        "code": "KZ",
+        "description": "Kazakhstan"
+    },
+    {
+        "code": "KE",
+        "description": "Kenya"
+    },
+    {
+        "code": "KI",
+        "description": "Kiribati"
+    },
+    {
+        "code": "KR",
+        "description": "Korea, Republic of"
+    },
+    {
+        "code": "XK",
+        "description": "Kosovo, Republic of"
+    },
+    {
+        "code": "KW",
+        "description": "Kuwait"
+    },
+    {
+        "code": "KG",
+        "description": "Kyrgyzstan"
+    },
+    {
+        "code": "LA",
+        "description": "Lao People`s Democratic Republic"
+    },
+    {
+        "code": "LV",
+        "description": "Latvia"
+    },
+    {
+        "code": "LB",
+        "description": "Lebanon"
+    },
+    {
+        "code": "1C_346",
+        "description": "Leeward Islands"
+    },
+    {
+        "code": "LS",
+        "description": "Lesotho"
+    },
+    {
+        "code": "LR",
+        "description": "Liberia"
+    },
+    {
+        "code": "LY",
+        "description": "Libya"
+    },
+    {
+        "code": "LT",
+        "description": "Lithuania"
+    },
+    {
+        "code": "LU",
+        "description": "Luxembourg"
+    },
+    {
+        "code": "MG",
+        "description": "Madagascar"
+    },
+    {
+        "code": "MW",
+        "description": "Malawi"
+    },
+    {
+        "code": "MY",
+        "description": "Malaysia"
+    },
+    {
+        "code": "MV",
+        "description": "Maldives"
+    },
+    {
+        "code": "ML",
+        "description": "Mali"
+    },
+    {
+        "code": "MT",
+        "description": "Malta"
+    },
+    {
+        "code": "MH",
+        "description": "Marshall islands"
+    },
+    {
+        "code": "MQ",
+        "description": "Martinique"
+    },
+    {
+        "code": "MR",
+        "description": "Mauritania"
+    },
+    {
+        "code": "MU",
+        "description": "Mauritius"
+    },
+    {
+        "code": "MX",
+        "description": "Mexico"
+    },
+    {
+        "code": "FM",
+        "description": "Micronesia, Federated States of"
+    },
+    {
+        "code": "MD",
+        "description": "Moldova, Republic of"
+    },
+    {
+        "code": "MN",
+        "description": "Mongolia"
+    },
+    {
+        "code": "ME",
+        "description": "Montenegro"
+    },
+    {
+        "code": "MS",
+        "description": "Montserrat"
+    },
+    {
+        "code": "MA",
+        "description": "Morocco"
+    },
+    {
+        "code": "MZ",
+        "description": "Mozambique"
+    },
+    {
+        "code": "MM",
+        "description": "Myanmar"
+    },
+    {
+        "code": "NA",
+        "description": "Namibia"
+    },
+    {
+        "code": "NR",
+        "description": "Nauru"
+    },
+    {
+        "code": "NP",
+        "description": "Nepal"
+    },
+    {
+        "code": "AN",
+        "description": "Netherlands Antilles"
+    },
+    {
+        "code": "NL",
+        "description": "Netherlands"
+    },
+    {
+        "code": "NC",
+        "description": "New Caledonia"
+    },
+    {
+        "code": "NZ",
+        "description": "New Zealand"
+    },
+    {
+        "code": "NI",
+        "description": "Nicaragua"
+    },
+    {
+        "code": "NE",
+        "description": "Niger"
+    },
+    {
+        "code": "NG",
+        "description": "Nigeria"
+    },
+    {
+        "code": "5H",
+        "description": "NIB (Nordic Investment Bank)"
+    },
+    {
+        "code": "MK",
+        "description": "North Macedonia, Republic of"
+    },
+    {
+        "code": "NO",
+        "description": "Norway"
+    },
+    {
+        "code": "OM",
+        "description": "Oman"
+    },
+    {
+        "code": "PK",
+        "description": "Pakistan"
+    },
+    {
+        "code": "PW",
+        "description": "Palau"
+    },
+    {
+        "code": "PA",
+        "description": "Panama"
+    },
+    {
+        "code": "1C_356",
+        "description": "Panama Canal Zone"
+    },
+    {
+        "code": "PG",
+        "description": "Papua New Guinea"
+    },
+    {
+        "code": "PY",
+        "description": "Paraguay"
+    },
+    {
+        "code": "PE",
+        "description": "Peru"
+    },
+    {
+        "code": "PH",
+        "description": "Philippines"
+    },
+    {
+        "code": "PL",
+        "description": "Poland"
+    },
+    {
+        "code": "PT",
+        "description": "Portugal"
+    },
+    {
+        "code": "QA",
+        "description": "Qatar"
+    },
+    {
+        "code": "RE",
+        "description": "Reunion"
+    },
+    {
+        "code": "RO",
+        "description": "Romania"
+    },
+    {
+        "code": "RU",
+        "description": "Russian Federation"
+    },
+    {
+        "code": "RW",
+        "description": "Rwanda"
+    },
+    {
+        "code": "1C_568",
+        "description": "Ryukyus"
+    },
+    {
+        "code": "SH",
+        "description": "Saint Helena"
+    },
+    {
+        "code": "PM",
+        "description": "Saint Pierre and Miquelon"
+    },
+    {
+        "code": "WS",
+        "description": "Samoa"
+    },
+    {
+        "code": "SM",
+        "description": "San Marino"
+    },
+    {
+        "code": "ST",
+        "description": "Sao Tome and Principe"
+    },
+    {
+        "code": "SA",
+        "description": "Saudi Arabia"
+    },
+    {
+        "code": "SN",
+        "description": "Senegal"
+    },
+    {
+        "code": "CS",
+        "description": "Serbia and Montenegro"
+    },
+    {
+        "code": "RS",
+        "description": "Serbia"
+    },
+    {
+        "code": "SC",
+        "description": "Seychelles"
+    },
+    {
+        "code": "SL",
+        "description": "Sierra Leone"
+    },
+    {
+        "code": "SG",
+        "description": "Singapore"
+    },
+    {
+        "code": "SX",
+        "description": "Sint Maarten (Dutch part)"
+    },
+    {
+        "code": "SK",
+        "description": "Slovakia"
+    },
+    {
+        "code": "SI",
+        "description": "Slovenia"
+    },
+    {
+        "code": "SB",
+        "description": "Solomon Islands"
+    },
+    {
+        "code": "SO",
+        "description": "Somalia"
+    },
+    {
+        "code": "ZA",
+        "description": "South Africa"
+    },
+    {
+        "code": "SS",
+        "description": "South Sudan"
+    },
+    {
+        "code": "ES",
+        "description": "Spain"
+    },
+    {
+        "code": "LK",
+        "description": "Sri Lanka"
+    },
+    {
+        "code": "KN",
+        "description": "Saint Kitts and Nevis"
+    },
+    {
+        "code": "LC",
+        "description": "Saint Lucia"
+    },
+    {
+        "code": "VC",
+        "description": "Saint Vincent and the Grenadines"
+    },
+    {
+        "code": "SD",
+        "description": "Sudan"
+    },
+    {
+        "code": "SR",
+        "description": "Suriname"
+    },
+    {
+        "code": "SE",
+        "description": "Sweden"
+    },
+    {
+        "code": "CH",
+        "description": "Switzerland"
+    },
+    {
+        "code": "SY",
+        "description": "Syrian Arab Republic"
+    },
+    {
+        "code": "TW",
+        "description": "Taiwan, Province of China"
+    },
+    {
+        "code": "TJ",
+        "description": "Tajikistan"
+    },
+    {
+        "code": "TZ",
+        "description": "Tanzania, United Republic of"
+    },
+    {
+        "code": "TH",
+        "description": "Thailand"
+    },
+    {
+        "code": "TP",
+        "description": "Timor"
+    },
+    {
+        "code": "TL",
+        "description": "Timor-Leste"
+    },
+    {
+        "code": "TG",
+        "description": "Togo"
+    },
+    {
+        "code": "TO",
+        "description": "Tonga"
+    },
+    {
+        "code": "TT",
+        "description": "Trinidad and Tobago"
+    },
+    {
+        "code": "TN",
+        "description": "Tunisia"
+    },
+    {
+        "code": "TR",
+        "description": "Türkiye"
+    },
+    {
+        "code": "TM",
+        "description": "Turkmenistan"
+    },
+    {
+        "code": "TC",
+        "description": "Turks and Caicos Islands"
+    },
+    {
+        "code": "TV",
+        "description": "Tuvalu"
+    },
+    {
+        "code": "UG",
+        "description": "Uganda"
+    },
+    {
+        "code": "UA",
+        "description": "Ukraine"
+    },
+    {
+        "code": "AE",
+        "description": "United Arab Emirates"
+    },
+    {
+        "code": "GB",
+        "description": "United Kingdom"
+    },
+    {
+        "code": "US",
+        "description": "United States"
+    },
+    {
+        "code": "UY",
+        "description": "Uruguay"
+    },
+    {
+        "code": "VI",
+        "description": "Virgin Islands, U.S."
+    },
+    {
+        "code": "SUH",
+        "description": "Former U.S.S.R."
+    },
+    {
+        "code": "UZ",
+        "description": "Uzbekistan"
+    },
+    {
+        "code": "VU",
+        "description": "Vanuatu"
+    },
+    {
+        "code": "VE",
+        "description": "Venezuela, Bolivarian Republic"
+    },
+    {
+        "code": "VN",
+        "description": "Viet Nam"
+    },
+    {
+        "code": "PS",
+        "description": "Palestine, State of"
+    },
+    {
+        "code": "1C_376",
+        "description": "Windward Islands"
+    },
+    {
+        "code": "1C_473",
+        "description": "Yemen Arab Rep."
+    },
+    {
+        "code": "1C_459",
+        "description": "Yemen, P.D. Rep."
+    },
+    {
+        "code": "YE",
+        "description": "Yemen"
+    },
+    {
+        "code": "YUC",
+        "description": "Former Yugoslavia"
+    },
+    {
+        "code": "ZM",
+        "description": "Zambia"
+    },
+    {
+        "code": "ZW",
+        "description": "Zimbabwe"
+    },
+    {
+        "code": "XR29",
+        "description": "Advanced Economies (IMF)"
+    },
+    {
+        "code": "M49_002",
+        "description": "Africa"
+    },
+    {
+        "code": "F19",
+        "description": "Africa not allocated"
+    },
+    {
+        "code": "1C_ALLC",
+        "description": "All Countries"
+    },
+    {
+        "code": "1C_ALL",
+        "description": "All Countries and Country Groups"
+    },
+    {
+        "code": "W0",
+        "description": "World (all areas, including reference area, including IO)"
+    },
+    {
+        "code": "1C_All_Countries_Published",
+        "description": "All Countries Published"
+    },
+    {
+        "code": "1C_ALLG",
+        "description": "All Country Groups"
+    },
+    {
+        "code": "M49_019",
+        "description": "Americas"
+    },
+    {
+        "code": "R16",
+        "description": "APEC (Asia-Pacific Economic Co-operation)"
+    },
+    {
+        "code": "M49_142",
+        "description": "Asia"
+    },
+    {
+        "code": "5O",
+        "description": "BCEAO (Banque Centrale des Etats de l`Afrique de l`Ouest)"
+    },
+    {
+        "code": "5X",
+        "description": "CEMAC"
+    },
+    {
+        "code": "1C_904",
+        "description": "Central and eastern Europe"
+    },
+    {
+        "code": "R14",
+        "description": "Community of Independent States (CIS)"
+    },
+    {
+        "code": "Countries_Home_Portal_Presentation",
+        "description": "Countries Home Portal Presentation"
+    },
+    {
+        "code": "F3",
+        "description": "Eastern Africa deprecated"
+    },
+    {
+        "code": "5Y",
+        "description": "Eastern Caribbean Currency Union"
+    },
+    {
+        "code": "XS25",
+        "description": "Developing Asia (IMF)"
+    },
+    {
+        "code": "XR43",
+        "description": "Emerging and Developing Countries"
+    },
+    {
+        "code": "1C_903",
+        "description": "Emerging and Developing Europe"
+    },
+    {
+        "code": "1C_994",
+        "description": "EPU/EF"
+    },
+    {
+        "code": "1C_EMU",
+        "description": "1C_EMU"
+    },
+    {
+        "code": "M49_150",
+        "description": "Europe"
+    },
+    {
+        "code": "1C_080",
+        "description": "Export earnings: fuel"
+    },
+    {
+        "code": "1C_092",
+        "description": "Export earnings: nonfuel"
+    },
+    {
+        "code": "120",
+        "description": "G20"
+    },
+    {
+        "code": "119",
+        "description": "G7"
+    },
+    {
+        "code": "F97",
+        "description": "Middle East"
+    },
+    {
+        "code": "F98",
+        "description": "Middle East and North Africa (MENA)"
+    },
+    {
+        "code": "1C_Middle_East_and_Central_Asia",
+        "description": "Middle East and Central Asia"
+    },
+    {
+        "code": "1C_440",
+        "description": "Middle East, North Africa, Afghanistan, and Pakistan"
+    },
+    {
+        "code": "1C_NANSA",
+        "description": "National Accounts (NSA) Countries"
+    },
+    {
+        "code": "1C_NASA",
+        "description": "National Accounts (SA) Countries"
+    },
+    {
+        "code": "XR44",
+        "description": "Non-oil Developing Countries (IMF)"
+    },
+    {
+        "code": "1C_NSC",
+        "description": "Non SRF countries"
+    },
+    {
+        "code": "M49_009",
+        "description": "Oceania"
+    },
+    {
+        "code": "XR21",
+        "description": "Oil-exporting Countries (IMF)"
+    },
+    {
+        "code": "XA69",
+        "description": "Other Central America not allocated (IMF)"
+    },
+    {
+        "code": "1C_970",
+        "description": "Other Holders"
+    },
+    {
+        "code": "1C_SRF_less_EMU",
+        "description": "SRF (excluding EA)"
+    },
+    {
+        "code": "1C_SRF_plus_EMU",
+        "description": "SRF (including EA)"
+    },
+    {
+        "code": "1C_SRF",
+        "description": "SRF Countries"
+    },
+    {
+        "code": "F6",
+        "description": "Sub-Saharan Africa"
+    },
+    {
+        "code": "7A",
+        "description": "WAEMU (West African Economic and Monetary Union)"
+    },
+    {
+        "code": "A10",
+        "description": "Western Hemisphere"
+    },
+    {
+        "code": "W00",
+        "description": "All Countries, excluding the IO"
+    }
+]

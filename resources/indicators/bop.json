@@ -1,0 +1,86 @@
+[
+    {
+        "code": "IADD_BP6_USD",
+        "description": "Assets, Direct Investment, Debt Instruments, US Dollars"
+    },
+    {
+        "code": "IADE_BP6_USD",
+        "description": "Assets, Direct Investment, Equity and Investment Fund Shares, US Dollars"
+    },
+    {
+        "code": "IAD_BP6_USD",
+        "description": "Assets, Direct Investment, US Dollars"
+    },
+    {
+        "code": "IAOPC_BP6_USD",
+        "description": "Assets, Other Investment, Loans, Insurance, Pension, and Standardized Guarantee Schemes, US Dollars"
+    },
+    {
+        "code": "IAOLN_BP6_USD",
+        "description": "Assets, Other Investment, Loans, US Dollars"
+    },
+    {
+        "code": "IAOE_BP6_USD",
+        "description": "Assets, Other Investment, Other Equity, US Dollars"
+    },
+    {
+        "code": "IAPE_BP6_USD",
+        "description": "Assets, Portfolio Investment, Equity and Investment Fund Shares, US Dollars"
+    },
+    {
+        "code": "IAP_BP6_USD",
+        "description": "Assets, Portfolio Investment, US Dollars"
+    },
+    {
+        "code": "IAROSE_BP6_USD",
+        "description": "Assets, Reserve Assets, Other Reserve Assets, Securities, Equity and Investment Fund Shares, US Dollars"
+    },
+    {
+        "code": "BGS_BP6_USD",
+        "description": "Current Account, Goods and Services, Net, US Dollars"
+    },
+    {
+        "code": "BS_BP6_USD",
+        "description": "Current Account, Goods and Services, Services, Net, US Dollars"
+    },
+    {
+        "code": "BIP_BP6_USD",
+        "description": "Current Account, Primary Income, Net, US Dollars"
+    },
+    {
+        "code": "BISO_BP6_USD",
+        "description": "Current Account, Secondary Income, Financial Corporations, Nonfinancial Corporations, Households, and NPISHs, Net, US Dollars"
+    },
+    {
+        "code": "BCA_BP6_USD",
+        "description": "Current Account, Total, Net, US Dollars"
+    },
+    {
+        "code": "BFD_BP6_USD",
+        "description": "Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), Direct Investment, US Dollars"
+    },
+    {
+        "code": "BF_BP6_USD",
+        "description": "Financial Account, Net Lending (+) / Net Borrowing (-) (Balance from Financial Account), US Dollars"
+    },
+    {
+        "code": "BFO_BP6_USD",
+        "description": "Financial Account, Other Investment, US Dollars"
+    },
+    {
+        "code": "BFPA_BP6_USD",
+        "description": "Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, US Dollars"
+    },
+    {
+        "code": "BFRA_BP6_USD",
+        "description": "Financial Account, Reserve Assets, US Dollars"
+    },
+    {
+        "code": "ILD_BP6_USD",
+        "description": "Liabilities, Direct Investment, US Dollars"
+    },
+    {
+        "code": "ILP_BP6_USD",
+        "description": "Liabilities, Portfolio Investment, US Dollars"
+    }
+]

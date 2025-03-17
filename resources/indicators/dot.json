@@ -1,0 +1,18 @@
+[
+    {
+        "code": "TXG_FOB_USD",
+        "description": "Goods, Value of Exports, Free on board (FOB), US Dollars"
+    },
+    {
+        "code": "TMG_CIF_USD",
+        "description": "Goods, Value of Imports, Cost, Insurance, Freight (CIF), US Dollars"
+    },
+    {
+        "code": "TMG_FOB_USD",
+        "description": "Goods, Value of Imports, Free on board (FOB), US Dollars"
+    },
+    {
+        "code": "TBG_USD",
+        "description": "Goods, Value of Trade Balance, US Dollars"
+    }
+]
