@@ -1,6 +1,5 @@
 # IMF Data MCP
 
-## Project Overview
 This MCP server integrates with the free IMF data API to provide a set of tools and resources for retrieving and processing economic data. It enables users to query datasets, fetch time series data, and list available indicators and countries, making it easier to work with IMF data in a structured and programmatic way.
 
 ## Features
