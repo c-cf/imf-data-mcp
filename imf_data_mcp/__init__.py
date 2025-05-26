@@ -17,7 +17,7 @@ Note:
 
 Please further parse or convert the returned data format as needed.
 """
-from utils import process_imf_data
+from .utils import process_imf_data
 from mcp.server.fastmcp import FastMCP
 import requests
 import os
