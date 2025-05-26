@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "imf-data-mcp"
 version = "0.1.0"
@@ -10,4 +14,4 @@ dependencies = [
 ]
 
 [project.scripts]
-imf-data-mcp = "server:mcp.run"
+imf-data-mcp = "imf_data_mcp:main"

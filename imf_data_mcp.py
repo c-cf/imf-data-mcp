@@ -362,6 +362,10 @@ def imf_query_prompt() -> str:
     """
     return prompt_text
 
+def main():
+    """Main entry point for the MCP server."""
+    mcp.run()
+
 # Start the MCP server
 if __name__ == "__main__":
-    mcp.run()
+    main()
