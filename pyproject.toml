@@ -8,3 +8,6 @@ dependencies = [
     "mcp[cli]>=1.9.1",
     "requests>=2.32.3",
 ]
+
+[project.scripts]
+imf-data-mcp = "server:mcp.run"
