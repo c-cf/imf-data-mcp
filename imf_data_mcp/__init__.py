@@ -17,7 +17,7 @@ Note:
 
 Please further parse or convert the returned data format as needed.
 """
-from utils import process_imf_data
+from .utils import process_imf_data
 from mcp.server.fastmcp import FastMCP
 import requests
 import os
@@ -362,6 +362,10 @@ def imf_query_prompt() -> str:
     """
     return prompt_text
 
+def main():
+    """Main entry point for the MCP server."""
+    mcp.run()
+
 # Start the MCP server
 if __name__ == "__main__":
-    mcp.run()
+    main()
