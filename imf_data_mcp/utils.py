@@ -1,51 +1,67 @@
 def process_imf_data(json_data: dict) -> str:
     """
-    Process IMF data and return a string with the information.
-    :param:
-        json_data(dict): JSON data from the IMF API
-    :return:
-        (str) A string with the information from the JSON data
+    Parse an IMF CompactData API response into human-readable text.
+
+    Args:
+        json_data: Parsed JSON response from the IMF CompactData endpoint.
+
+    Returns:
+        str: One line per observation, or warning/error messages.
     """
     try:
-       
-        json_data = json_data["CompactData"]
-        dataset = json_data["DataSet"]
-
+        dataset = json_data["CompactData"]["DataSet"]
         series_list = dataset["Series"]
-        if isinstance(series_list, dict):
+
+        if series_list is None:
+            return "Warning: No data returned (empty series)."
+        elif isinstance(series_list, dict):
             series_list = [series_list]
         elif not isinstance(series_list, list):
-            return f"Error: Expected series_list to be a list but got {type(series_list)}"
+            return f"Error: Expected a list of series, got {type(series_list).__name__}."
 
-        output_texts = []
-        
+        output: list[str] = []
+
         for series in series_list:
             if series is None:
-                output_texts.append("Warning: No indicator value.")
+                output.append("Warning: No indicator value.")
                 continue
-            country = series.get("@REF_AREA", None)
-            obs = series.get("Obs", {})
+
+            country = series.get("@REF_AREA", "unknown")
+            obs = series.get("Obs")
+
+            if obs is None:
+                output.append(
+                    f"Warning: No data for {country}. "
+                    "This country/indicator combination may not be available."
+                )
+                continue
+
             if isinstance(obs, dict):
                 obs = [obs]
             elif not isinstance(obs, list):
-                return f"Error: Expected obs to be a list but got {type(obs)}"
-            for _obs in obs:
-                if _obs is None:
-                    output_texts.append(
-                        f"Warning: No indicator value for {country} in that Year, You should not try to access the data of this country."
-                    )
+                output.append(f"Error: Unexpected observation format for {country}.")
+                continue
+
+            for entry in obs:
+                if entry is None:
+                    output.append(f"Warning: Missing observation entry for {country}.")
                     continue
-                time_period = _obs.get("@TIME_PERIOD", "that Year")
-                obs_value = _obs.get("@OBS_VALUE")
-                
+
+                time_period = entry.get("@TIME_PERIOD", "unknown period")
+                obs_value = entry.get("@OBS_VALUE")
+
                 if obs_value is not None:
-                    text = f"In {time_period}, {country} had an indicator value of {float(obs_value):.2f}."
-                    output_texts.append(text)
+                    output.append(
+                        f"In {time_period}, {country} had an indicator value of {float(obs_value):.2f}."
+                    )
                 else:
-                    output_texts.append(f"Warning: No indicator value for {country} in {time_period}.")
-        
-        return "\n".join(output_texts)
+                    output.append(
+                        f"Warning: No indicator value for {country} in {time_period}."
+                    )
+
+        return "\n".join(output) if output else "No data returned."
+
     except KeyError as e:
-        return f"Error processing IMF data: Missing key {str(e)}"
+        return f"Error processing IMF data: missing key {e}."
     except Exception as e:
-        return f"Error processing IMF data: {str(e)}"
+        return f"Error processing IMF data: {e}"
