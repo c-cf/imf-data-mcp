@@ -4,13 +4,15 @@ build-backend = "hatchling.build"
 
 [project]
 name = "imf-data-mcp"
-version = "0.1.0"
-description = "MCP server for the IMF public data API"
+version = "0.2.0"
+description = "MCP server for the IMF public data API (data.imf.org)"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "mcp[cli]>=1.9.1",
-    "requests>=2.32.3",
+    "imfp>=1.3.0",
+    "pandas>=2.0.0",
+    "pydantic>=2.0.0",
 ]
 
 [project.scripts]

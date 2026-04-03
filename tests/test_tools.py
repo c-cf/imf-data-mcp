@@ -1,198 +1,151 @@
-"""Integration tests for MCP tools using mocked HTTP requests."""
+"""Integration tests for the imfp-based MCP tools."""
 import json
-import os
 import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
+import pandas as pd
+
 import imf_data_mcp as server
+from imf_data_mcp import (
+    SearchDatabasesInput,
+    DatabaseIdInput,
+    GetCodesInput,
+    FetchDataInput,
+)
 
+DATABASES_DF = pd.DataFrame([
+    {"database_id": "CPI",     "description": "Consumer Price Index (CPI)"},
+    {"database_id": "PCPS",    "description": "Primary Commodity Price System"},
+    {"database_id": "BOP_AGG", "description": "Balance of Payments (BOP)"},
+])
+PARAM_DEFS_DF = pd.DataFrame([
+    {"parameter": "country",   "description": "Country"},
+    {"parameter": "frequency", "description": "Frequency"},
+])
+PARAM_CODES = {
+    "country":   pd.DataFrame([{"input_code": "AUT", "description": "Austria"},
+                                {"input_code": "DEU", "description": "Germany"}]),
+    "frequency": pd.DataFrame([{"input_code": "A", "description": "Annual"},
+                                {"input_code": "M", "description": "Monthly"}]),
+}
+DATA_DF = pd.DataFrame([
+    {"country": "AUT", "frequency": "A", "time_period": "2022", "obs_value": 5.8},
+    {"country": "AUT", "frequency": "A", "time_period": "2023", "obs_value": 7.7},
+])
 
-def _mock_response(json_data: dict, status_code: int = 200) -> MagicMock:
-    """Build a mock requests.Response."""
-    mock = MagicMock()
-    mock.status_code = status_code
-    mock.json.return_value = json_data
-    mock.raise_for_status.return_value = None
-    return mock
+@pytest.mark.asyncio
+async def test_list_databases_returns_json_array():
+    with patch("imfp.imf_databases", return_value=DATABASES_DF):
+        result = await server.imf_list_databases()
+    data = json.loads(result)
+    assert isinstance(data, list) and len(data) == 3
 
+@pytest.mark.asyncio
+async def test_search_databases_finds_match():
+    with patch("imfp.imf_databases", return_value=DATABASES_DF):
+        result = await server.imf_search_databases(SearchDatabasesInput(keyword="price"))
+    assert len(json.loads(result)) == 2
 
-def _imf_response(country: str, time: str, value: str) -> dict:
-    """Minimal IMF CompactData response."""
-    return {
-        "CompactData": {
-            "DataSet": {
-                "Series": {
-                    "@REF_AREA": country,
-                    "Obs": {"@TIME_PERIOD": time, "@OBS_VALUE": value},
-                }
-            }
-        }
-    }
+@pytest.mark.asyncio
+async def test_search_databases_case_insensitive():
+    with patch("imfp.imf_databases", return_value=DATABASES_DF):
+        r1 = await server.imf_search_databases(SearchDatabasesInput(keyword="balance of payments"))
+        r2 = await server.imf_search_databases(SearchDatabasesInput(keyword="Balance of Payments"))
+    assert json.loads(r1) == json.loads(r2)
 
+@pytest.mark.asyncio
+async def test_search_databases_no_match():
+    with patch("imfp.imf_databases", return_value=DATABASES_DF):
+        result = await server.imf_search_databases(SearchDatabasesInput(keyword="zzznomatch"))
+    assert "message" in json.loads(result)
 
-# --- fetch_ifs_data ---
+@pytest.mark.asyncio
+async def test_get_parameter_defs_returns_list():
+    with patch("imfp.imf_parameter_defs", return_value=PARAM_DEFS_DF):
+        result = await server.imf_get_parameter_defs(DatabaseIdInput(database_id="CPI"))
+    assert json.loads(result)[0]["parameter"] == "country"
 
-def test_fetch_ifs_data_success():
-    payload = _imf_response("US", "2020", "21427.7")
-    with patch("requests.get", return_value=_mock_response(payload)):
-        result = server.fetch_ifs_data("A", "US", "NGDP_XDC", 2020, 2020)
-    assert "US" in result
-    assert "2020" in result
-    assert "21427.70" in result
+@pytest.mark.asyncio
+async def test_get_parameter_defs_invalid_db():
+    with patch("imfp.imf_parameter_defs", side_effect=ValueError("not found")):
+        result = await server.imf_get_parameter_defs(DatabaseIdInput(database_id="NOTEXIST"))
+    data = json.loads(result)
+    assert "error" in data and "hint" in data
 
+@pytest.mark.asyncio
+async def test_get_parameter_codes_all_params():
+    with patch("imfp.imf_parameters", return_value=PARAM_CODES):
+        result = await server.imf_get_parameter_codes(GetCodesInput(database_id="CPI"))
+    data = json.loads(result)
+    assert "country" in data and "frequency" in data
 
-def test_fetch_ifs_data_invalid_freq():
-    result = server.fetch_ifs_data("X", "US", "NGDP_XDC", 2020, 2020)
-    assert "Invalid frequency" in result or "Error" in result
+@pytest.mark.asyncio
+async def test_get_parameter_codes_single_param():
+    with patch("imfp.imf_parameters", return_value=PARAM_CODES):
+        result = await server.imf_get_parameter_codes(
+            GetCodesInput(database_id="CPI", parameter="country"))
+    assert list(json.loads(result).keys()) == ["country"]
 
+@pytest.mark.asyncio
+async def test_get_parameter_codes_search_filter():
+    with patch("imfp.imf_parameters", return_value=PARAM_CODES):
+        result = await server.imf_get_parameter_codes(
+            GetCodesInput(database_id="CPI", parameter="country", search="austria"))
+    data = json.loads(result)
+    assert len(data["country"]) == 1 and data["country"][0]["input_code"] == "AUT"
 
-def test_fetch_ifs_data_freq_normalized():
-    """Lowercase freq should be accepted and normalized."""
-    payload = _imf_response("JP", "2019", "5.00")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        result = server.fetch_ifs_data("a", "JP", "NGDP_XDC", 2019, 2019)
-    assert "JP" in result
-    # Check that the URL used uppercase freq
-    called_url = mock_get.call_args[0][0]
-    assert "/A.JP.NGDP_XDC" in called_url
+@pytest.mark.asyncio
+async def test_get_parameter_codes_invalid_param():
+    with patch("imfp.imf_parameters", return_value=PARAM_CODES):
+        result = await server.imf_get_parameter_codes(
+            GetCodesInput(database_id="CPI", parameter="notexist"))
+    data = json.loads(result)
+    assert "error" in data and "available_parameters" in data
 
+@pytest.mark.asyncio
+async def test_get_parameter_codes_invalid_db():
+    with patch("imfp.imf_parameters", side_effect=ValueError("not found")):
+        result = await server.imf_get_parameter_codes(GetCodesInput(database_id="NOTEXIST"))
+    data = json.loads(result)
+    assert "error" in data and "hint" in data
 
-def test_fetch_ifs_data_rate_limit():
-    mock = MagicMock()
-    mock.status_code = 429
-    with patch("requests.get", return_value=mock):
-        result = server.fetch_ifs_data("A", "US", "NGDP_XDC", 2020, 2020)
-    assert "429" in result or "Rate limit" in result
+@pytest.mark.asyncio
+async def test_fetch_data_returns_rows():
+    with patch("imfp.imf_dataset", return_value=DATA_DF):
+        result = await server.imf_fetch_data(FetchDataInput(
+            database_id="CPI", start_year=2022, end_year=2023,
+            filters={"country": ["AUT"], "frequency": ["A"]}))
+    data = json.loads(result)
+    assert data["row_count"] == 2 and data["rows"][0]["country"] == "AUT"
 
+@pytest.mark.asyncio
+async def test_fetch_data_respects_max_rows():
+    big_df = pd.DataFrame([{"country": "AUT", "time_period": str(y), "obs_value": 1.0}
+                            for y in range(2000)])
+    with patch("imfp.imf_dataset", return_value=big_df):
+        result = await server.imf_fetch_data(FetchDataInput(database_id="CPI", max_rows=10))
+    data = json.loads(result)
+    assert data["row_count"] == 10 and data["truncated"] is True
 
-def test_fetch_ifs_data_bad_request():
-    mock = MagicMock()
-    mock.status_code = 400
-    with patch("requests.get", return_value=mock):
-        result = server.fetch_ifs_data("A", "BADCODE", "BADIND", 2020, 2020)
-    assert "400" in result or "Bad request" in result
+@pytest.mark.asyncio
+async def test_fetch_data_empty_result():
+    with patch("imfp.imf_dataset", return_value=pd.DataFrame()):
+        result = await server.imf_fetch_data(
+            FetchDataInput(database_id="CPI", filters={"country": ["ZZZ"]}))
+    assert json.loads(result)["row_count"] == 0
 
+@pytest.mark.asyncio
+async def test_fetch_data_invalid_db():
+    with patch("imfp.imf_dataset", side_effect=ValueError("not found")):
+        result = await server.imf_fetch_data(FetchDataInput(database_id="NOTEXIST"))
+    data = json.loads(result)
+    assert "error" in data and "hint" in data
 
-def test_fetch_ifs_data_uses_https():
-    payload = _imf_response("US", "2020", "1.0")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        server.fetch_ifs_data("A", "US", "NGDP_XDC", 2020, 2020)
-    url = mock_get.call_args[0][0]
-    assert url.startswith("https://"), f"Expected HTTPS, got: {url}"
-
-
-# --- fetch_dot_data ---
-
-def test_fetch_dot_data_success():
-    payload = _imf_response("US", "2020", "1500.0")
-    with patch("requests.get", return_value=_mock_response(payload)):
-        result = server.fetch_dot_data("A", "US", "TXG_FOB_USD", "W00", 2020, 2020)
-    assert "1500.00" in result
-
-
-def test_fetch_dot_data_url_includes_counterpart():
-    payload = _imf_response("US", "2020", "1.0")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        server.fetch_dot_data("A", "US", "TXG_FOB_USD", "CN", 2020, 2020)
-    url = mock_get.call_args[0][0]
-    assert "A.US.TXG_FOB_USD.CN" in url
-
-
-# --- fetch_gfsmab_data ---
-
-def test_fetch_gfsmab_unit_xdc():
-    payload = _imf_response("DE", "2020", "100.0")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        server.fetch_gfsmab_data("A", "DE", "XDC", "GNLB__Z", 2020, 2020)
-    url = mock_get.call_args[0][0]
-    assert "S13.XDC" in url
-
-
-def test_fetch_gfsmab_unit_pct_gdp():
-    payload = _imf_response("FR", "2020", "3.5")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        server.fetch_gfsmab_data("A", "FR", "XDC_R_B1GQ", "GNLB__Z", 2020, 2020)
-    url = mock_get.call_args[0][0]
-    assert "S13.XDC_R_B1GQ" in url
-
-
-def test_fetch_gfsmab_invalid_unit():
-    result = server.fetch_gfsmab_data("A", "US", "INVALID_UNIT", "GNLB__Z", 2020, 2020)
-    assert "Invalid unit" in result
-
-
-# --- fetch_cpis_data ---
-
-def test_fetch_cpis_url_has_sector_totals():
-    payload = _imf_response("US", "2020", "500.0")
-    with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-        server.fetch_cpis_data("A", "US", "I_A_T_T_BP6_USD", "W00", 2020, 2020)
-    url = mock_get.call_args[0][0]
-    assert ".T.T." in url
-
-
-# --- list_indicators ---
-
-def test_list_indicators_ifs():
-    result = server.list_indicators("IFS")
-    assert isinstance(result, list)
-    assert len(result) > 0
-    assert "code" in result[0]
-    assert "description" in result[0]
-
-
-def test_list_indicators_case_insensitive():
-    result_lower = server.list_indicators("ifs")
-    result_upper = server.list_indicators("IFS")
-    assert result_lower == result_upper
-
-
-def test_list_indicators_all_datasets():
-    for dataset in ["IFS", "DOT", "BOP", "CDIS", "CPIS", "GFSMAB", "MFS", "FSI"]:
-        result = server.list_indicators(dataset)
-        assert isinstance(result, list), f"Expected list for {dataset}"
-        assert len(result) > 0, f"Empty indicators for {dataset}"
-
-
-def test_list_indicators_invalid_dataset():
-    with pytest.raises(Exception):
-        server.list_indicators("INVALID")
-
-
-# --- list_countries ---
-
-def test_list_countries_ifs():
-    result = server.list_countries("IFS")
-    assert isinstance(result, list)
-    assert len(result) > 0
-    assert "code" in result[0]
-
-
-def test_list_countries_all_datasets():
-    for dataset in ["IFS", "DOT", "BOP", "CDIS", "CPIS", "GFSMAB", "MFS", "FSI"]:
-        result = server.list_countries(dataset)
-        assert isinstance(result, list), f"Expected list for {dataset}"
-        assert len(result) > 0, f"Empty countries for {dataset}"
-
-
-def test_list_countries_invalid_dataset():
-    with pytest.raises(Exception):
-        server.list_countries("NOTEXIST")
-
-
-# --- URL validation ---
-
-def test_all_fetch_tools_use_https():
-    """All fetch tools must use HTTPS."""
-    payload = _imf_response("US", "2020", "1.0")
-    tools_and_args = [
-        (server.fetch_ifs_data, ("A", "US", "NGDP_XDC", 2020, 2020)),
-        (server.fetch_dot_data, ("A", "US", "TXG_FOB_USD", "W00", 2020, 2020)),
-        (server.fetch_bop_data, ("A", "US", "BCA_BP6_USD", 2020, 2020)),
-        (server.fetch_mfs_data, ("A", "US", "FASMB_XDC", 2020, 2020)),
-        (server.fetch_fsi_data, ("A", "US", "FSANL_PT", 2020, 2020)),
-    ]
-    for func, args in tools_and_args:
-        with patch("requests.get", return_value=_mock_response(payload)) as mock_get:
-            func(*args)
-        url = mock_get.call_args[0][0]
-        assert url.startswith("https://"), f"{func.__name__} used HTTP instead of HTTPS: {url}"
+@pytest.mark.asyncio
+async def test_fetch_data_passes_filters_as_kwargs():
+    with patch("imfp.imf_dataset", return_value=DATA_DF) as mock_ds:
+        await server.imf_fetch_data(FetchDataInput(
+            database_id="CPI", start_year=2022, end_year=2023,
+            filters={"country": ["AUT"], "frequency": ["A"]}))
+    _, kwargs = mock_ds.call_args
+    assert kwargs.get("country") == ["AUT"]
+    assert kwargs.get("start_year") == 2022

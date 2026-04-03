@@ -1,369 +1,450 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 """
-IMF MCP Server
+IMF Data MCP Server
 
-Integrates the IMF free public data API via the Model Context Protocol.
-Exposes 8 IMF datasets (IFS, DOT, BOP, CDIS, CPIS, GFSMAB, MFS, FSI)
-as MCP tools and resources.
-
-Rate limits: 10 requests/5 seconds per user, 50 requests/second global.
+A Model Context Protocol server wrapping the imfp library, which uses
+the current IMF SDMX API at data.imf.org. Provides tools to list databases,
+explore available parameters/codes, and fetch time series data.
 """
-from .utils import process_imf_data
-from mcp.server.fastmcp import FastMCP
-import requests
-import os
+
+import asyncio
 import json
+from typing import Any, Optional
 
-BASE_URL = "https://dataservices.imf.org/REST/SDMX_JSON.svc"
-STRUCTURE_BASE_URL = "https://dataservices.imf.org/REST/SDMX_XML.svc"
+import imfp
+import pandas as pd
+from mcp.server.fastmcp import FastMCP
+from pydantic import BaseModel, ConfigDict, Field
 
-VALID_DATASETS = {"IFS", "DOT", "BOP", "CDIS", "CPIS", "GFSMAB", "MFS", "FSI"}
-VALID_FREQS = {"A", "Q", "M", "D", "W", "B"}
+# ── Server ────────────────────────────────────────────────────────────────────
 
-mcp = FastMCP("IMF Data Server")
+mcp = FastMCP("imf_mcp")
 
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
-def _validate_freq(freq: str) -> str:
-    """Normalize and validate frequency code."""
-    freq = freq.upper()
-    if freq not in VALID_FREQS:
-        valid = ", ".join(sorted(VALID_FREQS))
-        raise ValueError(f"Invalid frequency '{freq}'. Valid values: {valid}")
-    return freq
+def _df_to_records(df: pd.DataFrame) -> list[dict]:
+    """Convert a DataFrame to a list of plain dicts (JSON-serialisable)."""
+    return df.where(pd.notna(df), None).to_dict(orient="records")
 
 
-def _fetch_compact_data(dataset: str, dimensions: str, start: str | int, end: str | int) -> str:
-    """Fetch and process CompactData from IMF API."""
-    url = f"{BASE_URL}/CompactData/{dataset}/{dimensions}?startPeriod={start}&endPeriod={end}"
+def _run_sync(fn, *args, **kwargs):
+    """Run a synchronous imfp call in a thread so we don't block the event loop."""
+    return asyncio.to_thread(fn, *args, **kwargs)
+
+
+def _format_table(records: list[dict], max_rows: int = 500) -> str:
+    """Return a compact JSON array, capped at max_rows."""
+    if len(records) > max_rows:
+        records = records[:max_rows]
+        truncated = True
+    else:
+        truncated = False
+    out = json.dumps(records, indent=2, ensure_ascii=False)
+    if truncated:
+        out += f"\n\n[Results truncated to {max_rows} rows. Refine your query to see more.]"
+    return out
+
+
+# ── Tool: list databases ───────────────────────────────────────────────────────
+
+@mcp.tool(
+    name="imf_list_databases",
+    annotations={
+        "title": "List IMF Databases",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": True,
+    },
+)
+async def imf_list_databases() -> str:
+    """List all IMF databases available via the current data.imf.org API.
+
+    Returns a JSON array where each element has:
+        - database_id (str): Pass this to other tools.
+        - description (str): Human-readable name of the database.
+
+    Use imf_search_databases to filter by keyword instead of scanning this
+    full list. There are ~155 databases.
+
+    Returns:
+        str: JSON array of {database_id, description} objects.
+    """
     try:
-        response = requests.get(url, timeout=30)
-        if response.status_code == 400:
-            return (
-                f"Bad request for {dataset} (HTTP 400). "
-                "Check that frequency, country, and indicator codes are valid."
-            )
-        if response.status_code == 404:
-            return f"No data found for {dataset} with dimensions: {dimensions}"
-        if response.status_code == 429:
-            return (
-                "Rate limit exceeded (HTTP 429). "
-                "IMF allows 10 requests per 5 seconds. Please wait before retrying."
-            )
-        response.raise_for_status()
-        return process_imf_data(response.json())
-    except requests.exceptions.Timeout:
-        return f"Request timed out fetching {dataset} data."
-    except requests.exceptions.ConnectionError:
-        return f"Connection error fetching {dataset} data. Check your internet connection."
+        df = await _run_sync(imfp.imf_databases)
+        records = _df_to_records(df)
+        return _format_table(records, max_rows=200)
     except Exception as e:
-        return f"Error fetching {dataset} data: {str(e)}"
+        return json.dumps({"error": str(e)})
 
 
-def _fetch(dataset: str, freq: str, dimensions_suffix: str, start: str | int, end: str | int) -> str:
-    """Validate freq, then fetch data. Returns an error string on invalid freq."""
-    try:
-        freq = _validate_freq(freq)
-    except ValueError as e:
-        return str(e)
-    return _fetch_compact_data(dataset, f"{freq}.{dimensions_suffix}", start, end)
+# ── Tool: search databases ────────────────────────────────────────────────────
 
+class SearchDatabasesInput(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
 
-def _load_resource(subdir: str, dataset_id: str) -> list:
-    """Load a JSON resource file from the resources directory."""
-    dataset_id = dataset_id.upper()
-    if dataset_id not in VALID_DATASETS:
-        valid = ", ".join(sorted(VALID_DATASETS))
-        raise ValueError(f"Unknown dataset '{dataset_id}'. Valid datasets: {valid}")
-    file_path = os.path.join(
-        os.path.dirname(__file__), "resources", subdir, f"{dataset_id.lower()}.json"
+    keyword: str = Field(
+        ...,
+        description=(
+            "Case-insensitive keyword to search in database descriptions. "
+            "Examples: 'inflation', 'trade', 'fiscal', 'commodity', 'gender'."
+        ),
+        min_length=2,
+        max_length=100,
     )
-    with open(file_path, "r", encoding="utf-8") as f:
-        return json.load(f)
 
 
-# --- Resources ---
+@mcp.tool(
+    name="imf_search_databases",
+    annotations={
+        "title": "Search IMF Databases by Keyword",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": True,
+    },
+)
+async def imf_search_databases(params: SearchDatabasesInput) -> str:
+    """Search IMF databases by keyword in their description.
 
-@mcp.resource("imf://datasets")
-def list_datasets() -> dict:
-    """
-    Returns all available IMF datasets with their descriptions.
-
-    Returns:
-        dict: Dataset IDs mapped to their full names.
-    """
-    return {
-        "IFS": "International Financial Statistics",
-        "DOT": "Direction of Trade Statistics",
-        "BOP": "Balance of Payments Statistics",
-        "CDIS": "Coordinated Direct Investment Survey",
-        "CPIS": "Coordinated Portfolio Investment Survey",
-        "GFSMAB": "Government Finance Statistics, Main Aggregates and Balances",
-        "MFS": "Monetary and Financial Statistics",
-        "FSI": "Financial Soundness Indicators",
-    }
-
-
-@mcp.resource("imf://structure/{dataset_id}")
-def get_structure(dataset_id: str) -> str:
-    """
-    Returns the SDMX structure definition (XML) for the specified dataset.
+    Filters the full list of ~155 databases to those whose description
+    contains the keyword (case-insensitive). Use this to discover the
+    correct database_id before calling imf_get_parameters or imf_fetch_data.
 
     Args:
-        dataset_id: One of IFS, DOT, BOP, CDIS, CPIS, GFSMAB, MFS, FSI.
+        params (SearchDatabasesInput):
+            - keyword (str): Search term, e.g. 'consumer price', 'trade', 'fiscal'.
 
     Returns:
-        str: XML structure definition or an error message.
+        str: JSON array of {database_id, description} objects matching the keyword,
+             or an empty array if nothing matches.
     """
-    dataset_id = dataset_id.upper()
-    url = f"{STRUCTURE_BASE_URL}/DataStructure/{dataset_id}"
     try:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
-        return response.text
-    except requests.exceptions.Timeout:
-        return f"Request timed out fetching structure for {dataset_id}."
+        df = await _run_sync(imfp.imf_databases)
+        mask = df["description"].str.contains(params.keyword, case=False, na=False)
+        matches = df[mask]
+        if matches.empty:
+            return json.dumps(
+                {"message": f"No databases found matching '{params.keyword}'."}
+            )
+        return _format_table(_df_to_records(matches))
     except Exception as e:
-        return f"Error fetching structure for {dataset_id}: {str(e)}"
+        return json.dumps({"error": str(e)})
 
 
-# --- Tools: fetch data ---
+# ── Tool: get parameter definitions ──────────────────────────────────────────
 
-@mcp.tool()
-def fetch_ifs_data(
-    freq: str, country: str, indicator: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from IFS (International Financial Statistics).
+class DatabaseIdInput(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
 
-    Args:
-        freq: Frequency — A (annual), Q (quarterly), M (monthly).
-        country: Country code. Join multiple codes with "+", e.g. "US+GB".
-        indicator: Indicator code, e.g. "NGDP_XDC" for nominal GDP.
-        start: Start year (e.g. 2000).
-        end: End year (e.g. 2023).
-
-    Returns:
-        str: Formatted data observations or an error/warning message.
-    """
-    return _fetch("IFS", freq, f"{country}.{indicator}", start, end)
+    database_id: str = Field(
+        ...,
+        description=(
+            "IMF database ID, e.g. 'CPI', 'PCPS', 'BOP_AGG', 'ANEA'. "
+            "Obtain valid IDs from imf_search_databases or imf_list_databases."
+        ),
+        min_length=1,
+        max_length=60,
+    )
 
 
-@mcp.tool()
-def fetch_dot_data(
-    freq: str, country: str, indicator: str, counterpart: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from DOT (Direction of Trade Statistics).
+@mcp.tool(
+    name="imf_get_parameter_defs",
+    annotations={
+        "title": "Get Parameter Definitions for an IMF Database",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": True,
+    },
+)
+async def imf_get_parameter_defs(params: DatabaseIdInput) -> str:
+    """Return the list of query dimensions (parameters) for an IMF database.
 
-    Args:
-        freq: Frequency — A (annual), Q (quarterly), M (monthly).
-        country: Reporting country code.
-        indicator: Indicator code, e.g. "TXG_FOB_USD" for exports.
-        counterpart: Counterpart country code, or "W00" for world total.
-        start: Start year.
-        end: End year.
-
-    Returns:
-        str: Formatted data observations or an error/warning message.
-    """
-    return _fetch("DOT", freq, f"{country}.{indicator}.{counterpart}", start, end)
-
-
-@mcp.tool()
-def fetch_bop_data(
-    freq: str, country: str, indicator: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from BOP (Balance of Payments Statistics).
+    Each parameter corresponds to a keyword argument you can pass to
+    imf_fetch_data. Call imf_get_parameter_codes to see the valid codes
+    for each parameter.
 
     Args:
-        freq: Frequency — A (annual), Q (quarterly), M (monthly).
-        country: Country code.
-        indicator: Indicator code.
-        start: Start year.
-        end: End year.
+        params (DatabaseIdInput):
+            - database_id (str): e.g. 'CPI', 'PCPS', 'BOP_AGG'.
 
     Returns:
-        str: Formatted data observations or an error/warning message.
+        str: JSON array of {parameter, description} objects, where 'parameter'
+             is the kwarg name to use in imf_fetch_data.
+
+    Example response:
+        [
+          {"parameter": "ref_area", "description": "Reference Area"},
+          {"parameter": "indicator", "description": "CPI Indicator"},
+          {"parameter": "freq",      "description": "Frequency"}
+        ]
     """
-    return _fetch("BOP", freq, f"{country}.{indicator}", start, end)
+    try:
+        df = await _run_sync(imfp.imf_parameter_defs, params.database_id)
+        return _format_table(_df_to_records(df))
+    except ValueError as e:
+        return json.dumps(
+            {
+                "error": str(e),
+                "hint": "Use imf_search_databases to find a valid database_id.",
+            }
+        )
+    except Exception as e:
+        return json.dumps({"error": str(e)})
 
 
-@mcp.tool()
-def fetch_cdis_data(
-    freq: str, country: str, indicator: str, counterpart: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from CDIS (Coordinated Direct Investment Survey).
+# ── Tool: get parameter codes ─────────────────────────────────────────────────
+
+class GetCodesInput(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
+
+    database_id: str = Field(
+        ...,
+        description="IMF database ID, e.g. 'CPI', 'PCPS', 'BOP_AGG'.",
+        min_length=1,
+        max_length=60,
+    )
+    parameter: Optional[str] = Field(
+        default=None,
+        description=(
+            "Specific parameter name to return codes for, e.g. 'ref_area', 'freq'. "
+            "If omitted, all parameters and their codes are returned. "
+            "Get valid parameter names from imf_get_parameter_defs."
+        ),
+        min_length=1,
+        max_length=60,
+    )
+    search: Optional[str] = Field(
+        default=None,
+        description=(
+            "Optional keyword to filter codes or descriptions, e.g. 'Austria', 'annual'. "
+            "Case-insensitive."
+        ),
+        max_length=100,
+    )
+
+
+@mcp.tool(
+    name="imf_get_parameter_codes",
+    annotations={
+        "title": "List Valid Codes for IMF Database Parameters",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": True,
+    },
+)
+async def imf_get_parameter_codes(params: GetCodesInput) -> str:
+    """List valid input codes for one or all parameters of an IMF database.
+
+    Use this to find the exact codes to pass as filter values in imf_fetch_data.
+    For example, to find Austria's country code for 'ref_area', or the code for
+    'annual' frequency.
 
     Args:
-        freq: Frequency — A (annual).
-        country: Reporting country code.
-        indicator: Indicator code.
-        counterpart: Counterpart country code.
-        start: Start year.
-        end: End year.
+        params (GetCodesInput):
+            - database_id (str): IMF database ID.
+            - parameter (str, optional): Specific parameter to inspect (e.g. 'ref_area').
+              If omitted, returns codes for all parameters.
+            - search (str, optional): Keyword to filter the code list.
 
     Returns:
-        str: Formatted data observations or an error/warning message.
+        str: JSON object keyed by parameter name, each value being an array of
+             {input_code, description} objects.
+
+    Example return structure:
+        {
+          "ref_area": [
+            {"input_code": "AT", "description": "Austria"},
+            {"input_code": "DE", "description": "Germany"}
+          ]
+        }
     """
-    return _fetch("CDIS", freq, f"{country}.{indicator}.{counterpart}", start, end)
+    try:
+        all_params = await _run_sync(imfp.imf_parameters, params.database_id)
+    except ValueError as e:
+        return json.dumps(
+            {
+                "error": str(e),
+                "hint": "Use imf_search_databases to find a valid database_id.",
+            }
+        )
+    except Exception as e:
+        return json.dumps({"error": str(e)})
+
+    # Filter to requested parameter
+    if params.parameter:
+        if params.parameter not in all_params:
+            available = list(all_params.keys())
+            return json.dumps(
+                {
+                    "error": f"Parameter '{params.parameter}' not found.",
+                    "available_parameters": available,
+                }
+            )
+        subset = {params.parameter: all_params[params.parameter]}
+    else:
+        subset = all_params
+
+    # Apply optional search filter
+    result: dict[str, list[dict]] = {}
+    for name, df in subset.items():
+        records = _df_to_records(df)
+        if params.search:
+            kw = params.search.lower()
+            records = [
+                r
+                for r in records
+                if kw in str(r.get("input_code", "")).lower()
+                or kw in str(r.get("description", "")).lower()
+            ]
+        result[name] = records[:300]  # cap per parameter
+
+    return json.dumps(result, indent=2, ensure_ascii=False)
 
 
-@mcp.tool()
-def fetch_cpis_data(
-    freq: str, country: str, indicator: str, counter_country: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from CPIS (Coordinated Portfolio Investment Survey).
+# ── Tool: fetch data ──────────────────────────────────────────────────────────
 
-    Uses total holdings (sector=T, instrument=T) aggregated across all sectors.
+class FetchDataInput(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True, extra="forbid")
+
+    database_id: str = Field(
+        ...,
+        description="IMF database ID, e.g. 'CPI', 'PCPS', 'BOP_AGG', 'ANEA'.",
+        min_length=1,
+        max_length=60,
+    )
+    start_year: Optional[int] = Field(
+        default=None,
+        description="Earliest year to retrieve (4-digit integer), e.g. 2010.",
+        ge=1900,
+        le=2100,
+    )
+    end_year: Optional[int] = Field(
+        default=None,
+        description="Latest year to retrieve (4-digit integer), e.g. 2023.",
+        ge=1900,
+        le=2100,
+    )
+    filters: Optional[dict[str, list[str]]] = Field(
+        default=None,
+        description=(
+            "Dictionary of parameter filters. Keys are parameter names from "
+            "imf_get_parameter_defs, values are lists of input_code strings from "
+            "imf_get_parameter_codes. "
+            "Example: {\"ref_area\": [\"AT\", \"DE\"], \"freq\": [\"A\"]}. "
+            "Omitting a parameter means 'all values' (may return a very large result)."
+        ),
+    )
+    max_rows: Optional[int] = Field(
+        default=500,
+        description="Maximum number of rows to return (default 500, max 5000).",
+        ge=1,
+        le=5000,
+    )
+
+
+@mcp.tool(
+    name="imf_fetch_data",
+    annotations={
+        "title": "Fetch IMF Time Series Data",
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": True,
+    },
+)
+async def imf_fetch_data(params: FetchDataInput) -> str:
+    """Fetch time series data from any IMF database using the current data.imf.org API.
+
+    Workflow:
+        1. Use imf_search_databases to find the right database_id.
+        2. Use imf_get_parameter_defs to see what dimensions are available.
+        3. Use imf_get_parameter_codes to find exact filter codes.
+        4. Call this tool with those codes in the 'filters' dict.
 
     Args:
-        freq: Frequency — A (annual).
-        country: Reporting country code.
-        indicator: Indicator code.
-        counter_country: Counterpart country code.
-        start: Start year.
-        end: End year.
+        params (FetchDataInput):
+            - database_id (str): IMF database ID, e.g. 'CPI'.
+            - start_year (int, optional): Earliest year, e.g. 2010.
+            - end_year (int, optional): Latest year, e.g. 2023.
+            - filters (dict, optional): {parameter_name: [code1, code2, ...]}.
+              Example: {"ref_area": ["US", "DE"], "freq": ["A"]}.
+            - max_rows (int, optional): Row cap, default 500.
 
     Returns:
-        str: Formatted data observations or an error/warning message.
+        str: JSON with keys:
+            - columns (list[str]): Column names in the returned data.
+            - rows (list[dict]): The data records.
+            - row_count (int): Number of rows returned.
+            - truncated (bool): Whether the result was capped at max_rows.
+
+    Example filters for common databases:
+        CPI:     {"ref_area": ["US"], "freq": ["A"]}
+        PCPS:    {"commodity": ["PZINC"], "frequency": ["A"]}
+        BOP_AGG: {"ref_area": ["AT"], "freq": ["A"]}
+        ANEA:    {"ref_area": ["DE", "FR"], "freq": ["A"]}
     """
-    # T.T = Total sector, Total instrument type
-    return _fetch("CPIS", freq, f"{country}.{indicator}.T.T.{counter_country}", start, end)
+    try:
+        kwargs: dict[str, Any] = {}
+        if params.filters:
+            kwargs.update(params.filters)
+
+        df = await _run_sync(
+            imfp.imf_dataset,
+            params.database_id,
+            start_year=params.start_year,
+            end_year=params.end_year,
+            **kwargs,
+        )
+
+        if df is None or df.empty:
+            return json.dumps(
+                {
+                    "message": "No data returned. Check your filters and database_id.",
+                    "row_count": 0,
+                    "rows": [],
+                }
+            )
+
+        total = len(df)
+        cap = min(params.max_rows or 500, 5000)
+        truncated = total > cap
+        df = df.head(cap)
+
+        records = _df_to_records(df)
+        return json.dumps(
+            {
+                "database_id": params.database_id,
+                "columns": list(df.columns),
+                "row_count": len(records),
+                "total_rows_before_cap": total,
+                "truncated": truncated,
+                "rows": records,
+            },
+            indent=2,
+            ensure_ascii=False,
+            default=str,
+        )
+
+    except ValueError as e:
+        return json.dumps(
+            {
+                "error": str(e),
+                "hint": (
+                    "Check that database_id is valid (use imf_search_databases) "
+                    "and that filter codes match imf_get_parameter_codes output."
+                ),
+            }
+        )
+    except Exception as e:
+        return json.dumps({"error": f"{type(e).__name__}: {str(e)}"})
 
 
-@mcp.tool()
-def fetch_gfsmab_data(
-    freq: str, country: str, unit: str, indicator: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from GFSMAB (Government Finance Statistics, Main Aggregates and Balances).
-
-    Queries general government (sector S13) data.
-
-    Args:
-        freq: Frequency — A (annual).
-        country: Country code.
-        unit: "XDC" for domestic currency, or "XDC_R_B1GQ" for percent of GDP.
-        indicator: Indicator code, e.g. "GNLB__Z" for net lending/borrowing.
-        start: Start year.
-        end: End year.
-
-    Returns:
-        str: Formatted data observations or an error/warning message.
-    """
-    unit_upper = unit.upper()
-    if unit_upper not in ("XDC", "XDC_R_B1GQ"):
-        return f"Invalid unit '{unit}'. Use 'XDC' (domestic currency) or 'XDC_R_B1GQ' (% of GDP)."
-    # S13 = General government sector
-    return _fetch("GFSMAB", freq, f"{country}.S13.{unit_upper}.{indicator}", start, end)
-
-
-@mcp.tool()
-def fetch_mfs_data(
-    freq: str, country: str, indicator: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from MFS (Monetary and Financial Statistics).
-
-    Args:
-        freq: Frequency — A (annual), Q (quarterly), M (monthly).
-        country: Country code.
-        indicator: Indicator code.
-        start: Start year.
-        end: End year.
-
-    Returns:
-        str: Formatted data observations or an error/warning message.
-    """
-    return _fetch("MFS", freq, f"{country}.{indicator}", start, end)
-
-
-@mcp.tool()
-def fetch_fsi_data(
-    freq: str, country: str, indicator: str, start: str | int, end: str | int
-) -> str:
-    """
-    Fetch time series data from FSI (Financial Soundness Indicators).
-
-    Args:
-        freq: Frequency — A (annual), Q (quarterly), M (monthly).
-        country: Country code.
-        indicator: Indicator code.
-        start: Start year.
-        end: End year.
-
-    Returns:
-        str: Formatted data observations or an error/warning message.
-    """
-    return _fetch("FSI", freq, f"{country}.{indicator}", start, end)
-
-
-# --- Tools: lookup ---
-
-@mcp.tool()
-def list_indicators(dataset_id: str) -> list:
-    """
-    List available indicators for a dataset (reads from cached local JSON).
-
-    Args:
-        dataset_id: One of IFS, DOT, BOP, CDIS, CPIS, GFSMAB, MFS, FSI.
-
-    Returns:
-        list: Each item has "code" and "description" fields.
-    """
-    return _load_resource("indicators", dataset_id)
-
-
-@mcp.tool()
-def list_countries(dataset_id: str) -> list:
-    """
-    List available countries/areas for a dataset (reads from cached local JSON).
-
-    Args:
-        dataset_id: One of IFS, DOT, BOP, CDIS, CPIS, GFSMAB, MFS, FSI.
-
-    Returns:
-        list: Each item has "code" and "description" fields.
-    """
-    return _load_resource("areas", dataset_id)
-
-
-# --- Prompt ---
-
-@mcp.prompt()
-def imf_query_prompt() -> str:
-    """
-    Returns a step-by-step guide for querying IMF data.
-    """
-    return """
-You are a professional IMF data analysis assistant. Follow these steps:
-
-1. Use the `imf://datasets` resource to show the user available datasets
-   (IFS, DOT, BOP, CDIS, CPIS, GFSMAB, MFS, FSI) with brief descriptions.
-
-2. Once a dataset is selected, call:
-   - `list_countries(dataset_id)` — get valid country codes
-   - `list_indicators(dataset_id)` — get valid indicator codes
-
-3. Clarify with the user:
-   - Country/region (code from step 2; join multiple with "+", e.g. "US+GB")
-   - Indicator (code from step 2)
-   - Time range (start year, end year)
-   - Frequency: A=annual, Q=quarterly, M=monthly
-
-4. Call the appropriate `fetch_*_data` tool with the confirmed parameters.
-
-**Important:** If the result contains "Warning: No indicator value", the data
-simply does not exist for that period. Do not retry or attempt alternative queries.
-""".strip()
-
+# ── Entry point ────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    """Main entry point for the MCP server."""
     mcp.run()
 
 
