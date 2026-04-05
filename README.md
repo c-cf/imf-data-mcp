@@ -1,59 +1,127 @@
 # IMF Data MCP
 
-This MCP server integrates with the free IMF data API to provide a set of tools and resources for retrieving and processing economic data. It enables users to query datasets, fetch time series data, and list available indicators and countries, making it easier to work with IMF data in a structured and programmatic way.
+A Model Context Protocol server for IMF economic data, built on
+[imfp](https://github.com/Promptly-Technologies-LLC/imfp) and the
+[IMF SDMX API](https://data.imf.org) at `data.imf.org`.
 
-## Features
-- **List Datasets**: Retrieve a list of all available IMF datasets using the Dataflow API.
-- **Get Dataset Structure**: Fetch the structure of a specified dataset via the DataStructure API.
-- **Fetch Time Series Data**: Retrieve time series data for various datasets (e.g., CDIS, CPIS, MFS, IFS, etc.) using the CompactData API.
-- **List Indicators**: List all available indicators for a specific dataset using the DataMapper API.
-- **List Countries**: Retrieve a list of available countries for a specific dataset.
-- **Query Prompt Template**: Provide a query prompt template to guide users on how to query data with indicators and intentions.
+> **v0.2.0 — Breaking change:** The old server called `dataservices.imf.org`,
+> which the IMF decommissioned in 2025. All requests timed out as a result.
+> This version migrates to `imfp`, which targets the current `data.imf.org`
+> SDMX 3.0 API and is actively maintained.
 
-## Installation and Usage Guide
+---
 
-### Using `uv` (Recommended)
-You can run the server directly using `uvx` without additional installation:
-```bash
-uvx imf-data-mcp
-```
-### Using PIP
-Alternatively, you can install the server using pip:
+## Installation
+
+### Using `uv` (recommended)
 
 ```bash
-pip install imf-data-mcp
+uvx --from git+https://github.com/c-cf/imf-data-mcp imf-data-mcp
 ```
 
-After installation, run the server with:
+### Using pip
+
 ```bash
-python -m imf_data_mcp
+pip install git+https://github.com/c-cf/imf-data-mcp.git
 ```
-## Configuration
-You can configure the server to suit different use cases. For example, to integrate with a specific application, you might add the following configuration:
+
+---
+
+## Claude Desktop configuration
 
 ```json
 {
   "mcpServers": {
     "imf": {
       "command": "uvx",
-      "args": ["imf-data-mcp"]
+      "args": ["--from", "git+https://github.com/c-cf/imf-data-mcp", "imf-data-mcp"]
     }
   }
 }
 ```
 
-## Debugging
-To debug the server, you can use the MCP Inspector. For installations using uvx, run:
+Or, if installed via pip:
 
-```bash
-npx @modelcontextprotocol/inspector uvx imf-data-mcp
+```json
+{
+  "mcpServers": {
+    "imf": {
+      "command": "imf-data-mcp"
+    }
+  }
+}
 ```
 
-## Contribution Guide
-We welcome contributions to the imf-data-mcp project. Whether it's adding new tools, enhancing existing features, or improving documentation, your input is highly valuable. Please feel free to submit pull requests or open issues.
+---
+
+## Available tools
+
+| Tool | Description |
+|---|---|
+| `imf_list_databases` | List all ~155 IMF databases with their IDs |
+| `imf_search_databases` | Filter databases by keyword (e.g. `"inflation"`, `"trade"`) |
+| `imf_get_parameter_defs` | List query dimensions for a database |
+| `imf_get_parameter_codes` | List valid codes for a dimension, with optional search |
+| `imf_fetch_data` | Fetch time series data with year range and dimension filters |
+
+---
+
+## Typical workflow
+
+```
+1. imf_search_databases(keyword="consumer price")
+   → CPI, CPI_WCA, ...
+
+2. imf_get_parameter_defs(database_id="CPI")
+   → country, index_type, coicop_1999, frequency, ...
+
+3. imf_get_parameter_codes(database_id="CPI", parameter="country", search="austria")
+   → AUT
+
+4. imf_fetch_data(
+       database_id="CPI",
+       start_year=2015, end_year=2023,
+       filters={"country": ["AUT"], "frequency": ["M"]}
+   )
+```
+
+---
+
+## Common database IDs
+
+| Topic | ID |
+|---|---|
+| Consumer Prices | `CPI` |
+| Producer Prices | `PPI` |
+| National Accounts (Annual) | `ANEA` |
+| National Accounts (Quarterly) | `QNEA` |
+| Balance of Payments | `BOP_AGG` |
+| Exchange Rates | `ER_2026_JAN_VINTAGE` |
+| Commodity Prices | `PCPS` |
+| Fiscal Monitor | `FM` |
+| Gov. Finance Statistics | `GFS_COFOG` |
+| Monetary Statistics | `MFS_CBS`, `MFS_MA`, `MFS_IR` |
+| Financial Soundness | `FSIC` |
+| Trade in Services | `ITS` |
+| SDG Data | `SDG` |
+
+---
+
+## Rate limits
+
+The IMF API allows roughly 10 requests / 5 seconds. `imfp` handles
+rate limiting and retries automatically.
+
+---
+
+## Debugging
+
+```bash
+npx @modelcontextprotocol/inspector imf-data-mcp
+```
+
+---
 
 ## License
-This project is licensed under the Apache 2.0 License. See the LICENSE file for details.
 
-
-``
+Apache 2.0
